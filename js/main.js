@@ -1033,3 +1033,381 @@ function initStickyBooking() {
         }, 100));
     }
 }
+
+/* =====================================
+   JAVASCRIPT BUGFIXES - Applied from bugfixes file
+   ===================================== */
+
+// Fix: Throttle function to prevent duplicates
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {  // Spread operator for better parameter-handling
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// Fix: Enhanced contact form initialization to prevent conflicts
+function initEnhancedContactForm() {  // Renamed to avoid conflicts
+    const contactForm = document.getElementById('contactForm');
+    const stickyBookingBtn = document.getElementById('stickyBookingBtn');
+    const bookingModal = document.getElementById('bookingModal');
+    
+    // Null checks added
+    if (!contactForm) {
+        console.warn('Kontaktformular nicht gefunden');
+        return;
+    }
+
+    // Initialize booking modal
+    if (stickyBookingBtn && bookingModal) {
+        stickyBookingBtn.addEventListener('click', function() {
+            bookingModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close modal functionality
+        const closeModal = bookingModal.querySelector('.close');
+        if (closeModal) {
+            closeModal.addEventListener('click', function() {
+                bookingModal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === bookingModal) {
+                bookingModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Handle booking button clicks
+        const bookingBtns = document.querySelectorAll('.booking-btn');
+        bookingBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#contact') {
+                    e.preventDefault();
+                    bookingModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                    
+                    // Smooth scroll to contact form
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Focus on the first form field
+                        setTimeout(() => {
+                            const firstInput = contactForm.querySelector('input[type="text"]');
+                            if (firstInput) firstInput.focus();
+                        }, 1000);
+                    }
+                }
+            });
+        });
+    }
+}
+
+// Fix: Global error handler
+window.addEventListener('error', function(event) {
+    console.error('JavaScript Fehler:', {
+        message: event.message,
+        filename: event.filename,
+        line: event.lineno,
+        column: event.colno,
+        error: event.error
+    });
+    
+    // Fallback for critical functions
+    if (event.message.includes('undefined')) {
+        console.warn('Versuche Fallback-Funktionalität...');
+        initializeFallbacks();
+    }
+});
+
+// Fix: Fallback functions for critical features
+function initializeFallbacks() {
+    // Navigation Fallback
+    if (!document.querySelector('.nav-menu.active')) {
+        const navMenu = document.querySelector('.nav-menu');
+        if (navMenu) {
+            navMenu.style.display = 'block';
+        }
+    }
+    
+    // Form Fallback
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        if (!form.hasAttribute('novalidate')) {
+            form.setAttribute('novalidate', true);
+        }
+    });
+}
+
+// Fix: Debounce for search functions
+function debounce(func, wait, immediate) {
+    let timeout;
+    return function executedFunction(...args) {
+        const context = this;
+        const later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
+
+// Fix: Optimized event listener
+function addOptimizedEventListener(element, event, handler, options = {}) {
+    if (!element) return;
+    
+    const optimizedHandler = event === 'scroll' || event === 'resize' 
+        ? throttle(handler, 100)
+        : handler;
+        
+    element.addEventListener(event, optimizedHandler, {
+        passive: true,
+        ...options
+    });
+}
+
+// Fix: Memory leak prevention
+class EventManager {
+    constructor() {
+        this.listeners = new Map();
+    }
+    
+    add(element, event, handler, options) {
+        if (!element || !event || !handler) return;
+        
+        const key = `${element.tagName}-${event}-${handler.name}`;
+        
+        // Cleanup previous listener if exists
+        if (this.listeners.has(key)) {
+            const { element: oldEl, event: oldEv, handler: oldHandler } = this.listeners.get(key);
+            oldEl.removeEventListener(oldEv, oldHandler);
+        }
+        
+        element.addEventListener(event, handler, options);
+        this.listeners.set(key, { element, event, handler });
+    }
+    
+    cleanup() {
+        this.listeners.forEach(({ element, event, handler }) => {
+            element.removeEventListener(event, handler);
+        });
+        this.listeners.clear();
+    }
+}
+
+// Global Event Manager Instance
+const eventManager = new EventManager();
+
+// Cleanup when leaving the page
+window.addEventListener('beforeunload', () => {
+    eventManager.cleanup();
+});
+
+// Fix: Modal system repair
+class ModalManager {
+    constructor() {
+        this.currentModal = null;
+        this.modalStack = [];
+        this.init();
+    }
+    
+    init() {
+        // ESC key listener
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.currentModal) {
+                this.close(this.currentModal);
+            }
+        });
+    }
+    
+    open(modalId) {
+        const modal = document.getElementById(modalId);
+        if (!modal) {
+            console.error(`Modal with ID '${modalId}' not found`);
+            return;
+        }
+        
+        // Close current modal if exists
+        if (this.currentModal) {
+            this.modalStack.push(this.currentModal);
+        }
+        
+        this.currentModal = modal;
+        modal.style.display = 'block';
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus trap
+        this.trapFocus(modal);
+    }
+    
+    close(modal) {
+        if (!modal) return;
+        
+        modal.style.display = 'none';
+        modal.classList.remove('show');
+        
+        // Restore previous modal if exists
+        if (this.modalStack.length > 0) {
+            this.currentModal = this.modalStack.pop();
+        } else {
+            this.currentModal = null;
+            document.body.style.overflow = '';
+        }
+    }
+    
+    trapFocus(modal) {
+        const focusableElements = modal.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        
+        if (firstElement) {
+            firstElement.focus();
+        }
+        
+        modal.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                if (e.shiftKey) {
+                    if (document.activeElement === firstElement) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastElement) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+            }
+        });
+    }
+}
+
+// Global Modal Manager
+const modalManager = new ModalManager();
+
+// Fix: Form validation class
+class FormValidator {
+    constructor(form) {
+        this.form = form;
+        this.errors = new Map();
+        this.init();
+    }
+    
+    init() {
+        if (!this.form) return;
+        
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (this.validate()) {
+                this.handleSubmit();
+            }
+        });
+        
+        // Real-time validation
+        const inputs = this.form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => this.validateField(input));
+            input.addEventListener('input', () => this.clearError(input));
+        });
+    }
+    
+    validate() {
+        this.errors.clear();
+        const inputs = this.form.querySelectorAll('[required]');
+        
+        inputs.forEach(input => this.validateField(input));
+        
+        return this.errors.size === 0;
+    }
+    
+    validateField(field) {
+        const value = field.value?.trim() || '';
+        const fieldName = field.name;
+        
+        this.clearError(field);
+        
+        // Required field check
+        if (field.required && !value) {
+            this.setError(field, 'Dieses Feld ist erforderlich.');
+            return false;
+        }
+        
+        // Email validation
+        if (field.type === 'email' && value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                this.setError(field, 'Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+                return false;
+            }
+        }
+        
+        // Custom validation rules
+        if (fieldName === 'message' && value && value.length < 10) {
+            this.setError(field, 'Die Nachricht sollte mindestens 10 Zeichen lang sein.');
+            return false;
+        }
+        
+        return true;
+    }
+    
+    setError(field, message) {
+        this.errors.set(field, message);
+        field.classList.add('error');
+        
+        // Create or update error message
+        let errorElement = field.parentNode.querySelector('.error-message');
+        if (!errorElement) {
+            errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
+            field.parentNode.appendChild(errorElement);
+        }
+        
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+    
+    clearError(field) {
+        this.errors.delete(field);
+        field.classList.remove('error');
+        
+        const errorElement = field.parentNode.querySelector('.error-message');
+        if (errorElement) {
+            errorElement.style.display = 'none';
+        }
+    }
+    
+    handleSubmit() {
+        // Handle form submission
+        console.log('Form is valid, submitting...');
+        // Add actual form submission logic here
+    }
+}
+
+// Initialize enhanced form validation
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        new FormValidator(contactForm);
+    }
+});
+
