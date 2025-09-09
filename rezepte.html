@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezepte - Soulsgold | Medical Medium Rezepte für Heilung</title>
+    <meta name="description" content="Entdecken Sie heilende Rezepte nach Medical Medium - Brain Shots, Detox-Säfte, heilende Mahlzeiten und mehr für Ihre Gesundheit.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/recipes.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🌿 Soulsgold</h2>
+                <span>Christina Bradtke</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Start</a></li>
+                <li><a href="index.html#about" class="nav-link">Über mich</a></li>
+                <li><a href="index.html#approach" class="nav-link">Mein Ansatz</a></li>
+                <li><a href="index.html#services" class="nav-link">Angebote</a></li>
+                <li><a href="index.html#knowledge" class="nav-link">Wissen</a></li>
+                <li><a href="rezepte.html" class="nav-link active">Rezepte</a></li>
+                <li><a href="index.html#contact" class="nav-link">Kontakt</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Recipe Filters -->
+    <section class="recipe-filters">
+        <div class="container">
+            <h1>Heilende Rezepte</h1>
+            <p class="subtitle">Entdecken Sie die Kraft der natürlichen Heilung durch speziell zusammengestellte Rezepte nach Medical Medium</p>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Alle Rezepte</button>
+                <button class="filter-btn" data-filter="brain-shots">Brain Shots</button>
+                <button class="filter-btn" data-filter="detox">Detox & Entgiftung</button>
+                <button class="filter-btn" data-filter="adrenalin">Adrenalin-Ausgleich</button>
+                <button class="filter-btn" data-filter="sleep">Schlaf & Entspannung</button>
+                <button class="filter-btn" data-filter="anxiety">Angst & Panik</button>
+                <button class="filter-btn" data-filter="trauma">Trauma & PTBS</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe Grid -->
+    <section class="recipe-grid-section">
+        <div class="container">
+            <div class="recipe-grid" id="recipeGrid">
+                <!-- Brain Shot Rezepte -->
+                <div class="recipe-card" data-category="brain-shots">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1505252585461-14db1eb44964?w=400&h=250&fit=crop" alt="Brain Shot">
+                        <div class="recipe-category">Brain Shot</div>
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Anti-Angst Brain Shot</h3>
+                        <p class="recipe-description">Beruhigt das Nervensystem und reduziert Angstzustände. Perfekt für morgens oder bei akutem Stress.</p>
+                        <div class="recipe-benefits">
+                            <span class="benefit-tag">Angst-lindernd</span>
+                            <span class="benefit-tag">Nervenstärkend</span>
+                        </div>
+                        <div class="recipe-time">
+                            <i class="fas fa-clock"></i> 5 Min. Zubereitung
+                        </div>
+                        <button class="btn btn-primary recipe-btn" onclick="showRecipeDetails('anti-angst-brain-shot')">Rezept anzeigen</button>
+                    </div>
+                </div>
+
+                <div class="recipe-card" data-category="brain-shots">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1615485290382-4419be831c56?w=400&h=250&fit=crop" alt="Brain Shot">
+                        <div class="recipe-category">Brain Shot</div>
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Sleep-Brain-Shot</h3>
+                        <p class="recipe-description">Fördert erholsamen Schlaf und beruhigt überaktive Gedanken vor dem Schlafengehen.</p>
+                        <div class="recipe-benefits">
+                            <span class="benefit-tag">Schlaffördernd</span>
+                            <span class="benefit-tag">Beruhigend</span>
+                        </div>
+                        <div class="recipe-time">
+                            <i class="fas fa-clock"></i> 5 Min. Zubereitung
+                        </div>
+                        <button class="btn btn-primary recipe-btn" onclick="showRecipeDetails('sleep-brain-shot')">Rezept anzeigen</button>
+                    </div>
+                </div>
+
+                <!-- Detox Rezepte -->
+                <div class="recipe-card" data-category="detox">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6f7def7dee5?w=400&h=250&fit=crop" alt="Detox Saft">
+                        <div class="recipe-category">Detox</div>
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Schwermetall-Detox-Smoothie</h3>
+                        <p class="recipe-description">Entfernt sicher Schwermetalle aus dem Körper mit der perfekten Kombination aus Spirulina und Dulse.</p>
+                        <div class="recipe-benefits">
+                            <span class="benefit-tag">Entgiftend</span>
+                            <span class="benefit-tag">Schwermetall-Ausleitung</span>
+                        </div>
+                        <div class="recipe-time">
+                            <i class="fas fa-clock"></i> 10 Min. Zubereitung
+                        </div>
+                        <button class="btn btn-primary recipe-btn" onclick="showRecipeDetails('heavy-metal-detox')">Rezept anzeigen</button>
+                    </div>
+                </div>
+
+                <div class="recipe-card" data-category="adrenalin">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-44d4b39db823?w=400&h=250&fit=crop" alt="Adrenalin-Ausgleich">
+                        <div class="recipe-category">Adrenalin-Ausgleich</div>
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Adrenalin-Ausgleich-Smoothie</h3>
+                        <p class="recipe-description">Reduzert überschüssiges Adrenalin und beruhigt das Nervensystem bei chronischem Stress.</p>
+                        <div class="recipe-benefits">
+                            <span class="benefit-tag">Stress-Reduktion</span>
+                            <span class="benefit-tag">Hormon-Ausgleich</span>
+                        </div>
+                        <div class="recipe-time">
+                            <i class="fas fa-clock"></i> 7 Min. Zubereitung
+                        </div>
+                        <button class="btn btn-primary recipe-btn" onclick="showRecipeDetails('adrenalin-balance')">Rezept anzeigen</button>
+                    </div>
+                </div>
+
+                <!-- Sleep Rezepte -->
+                <div class="recipe-card" data-category="sleep">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1544365558-35ea4f7b1b83?w=400&h=250&fit=crop" alt="Schlaf-Tee">
+                        <div class="recipe-category">Schlaf & Entspannung</div>
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Trauma-Schlaf-Tee</h3>
+                        <p class="recipe-description">Beruhigende Kräutermischung speziell für Menschen mit Trauma und Schlafstörungen.</p>
+                        <div class="recipe-benefits">
+                            <span class="benefit-tag">Schlaffördernd</span>
+                            <span class="benefit-tag">Trauma-sensibel</span>
+                        </div>
+                        <div class="recipe-time">
+                            <i class="fas fa-clock"></i> 15 Min. Zubereitung
+                        </div>
+                        <button class="btn btn-primary recipe-btn" onclick="showRecipeDetails('trauma-sleep-tea')">Rezept anzeigen</button>
+                    </div>
+                </div>
+
+                <!-- Anxiety Rezepte -->
+                <div class="recipe-card" data-category="anxiety">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1544365557-9388a4153f6c?w=400&h=250&fit=crop" alt="Beruhigende Nahrung">
+                        <div class="recipe-category">Angst & Panik</div>
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Anti-Panik-Suppe</h3>
+                        <p class="recipe-description">Wärmende Suppe mit beruhigenden Kräutern und Gemüse zur Reduzierung von Panikattacken.</p>
+                        <div class="recipe-benefits">
+                            <span class="benefit-tag">Beruhigend</span>
+                            <span class="benefit-tag">Panik-Reduktion</span>
+                        </div>
+                        <div class="recipe-time">
+                            <i class="fas fa-clock"></i> 25 Min. Zubereitung
+                        </div>
+                        <button class="btn btn-primary recipe-btn" onclick="showRecipeDetails('anti-panic-soup')">Rezept anzeigen</button>
+                    </div>
+                </div>
+
+                <!-- Trauma Rezepte -->
+                <div class="recipe-card" data-category="trauma">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1606923829579-0cb967557a04?w=400&h=250&fit=crop" alt="Trauma-Heilung">
+                        <div class="recipe-category">Trauma & PTBS</div>
+                    </div>
+                    <div class="recipe-content">
+                        <h3>PTBS-Heilungs-Bowl</h3>
+                        <p class="recipe-description">Nahrhafter Buddha Bowl speziell zur Unterstützung der Trauma-Heilung und Nervenstärkung.</p>
+                        <div class="recipe-benefits">
+                            <span class="benefit-tag">Trauma-Heilung</span>
+                            <span class="benefit-tag">Nervenstärkend</span>
+                        </div>
+                        <div class="recipe-time">
+                            <i class="fas fa-clock"></i> 20 Min. Zubereitung
+                        </div>
+                        <button class="btn btn-primary recipe-btn" onclick="showRecipeDetails('ptbs-healing-bowl')">Rezept anzeigen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="recipe-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="recipeDetails"></div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>🌟 Erhalte neue Rezepte per E-Mail</h2>
+                <p>Abonniere meinen Newsletter und erhalte wöchentlich neue heilende Rezepte und Gesundheitstipps.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Deine E-Mail-Adresse" required>
+                    <button type="submit" class="btn btn-primary">Jetzt anmelden</button>
+                </form>
+                <p class="newsletter-disclaimer">Kein Spam, jederzeit abbestellbar. Deine Daten sind sicher.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🌿 Soulsgold</h3>
+                    <p>Heilung für Körper, Seele & Geist nach Medical Medium Prinzipien.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Schnelllinks</h4>
+                    <ul>
+                        <li><a href="index.html#about">Über mich</a></li>
+                        <li><a href="index.html#services">Angebote</a></li>
+                        <li><a href="rezepte.html">Rezepte</a></li>
+                        <li><a href="index.html#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Soulsgold - Christina Bradtke. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/recipes.js"></script>
+</body>
+</html>

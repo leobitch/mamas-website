@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Soulsgold | Buchungsverwaltung</title>
+    <meta name="description" content="Admin-Bereich für Buchungsverwaltung und Website-Management">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>🌿 Soulsgold Admin</h1>
+                <p>Buchungsverwaltung & Website-Management</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Benutzername</label>
+                    <input type="text" id="username" name="username" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Passwort</label>
+                    <input type="password" id="password" name="password" required />
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Anmelden</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <h2>🌿 Soulsgold Admin</h2>
+                <div class="header-actions">
+                    <span class="admin-welcome">Willkommen, <span id="adminName">Admin</span>!</span>
+                    <button class="btn btn-outline" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Abmelden</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Navigation -->
+        <nav class="admin-nav">
+            <ul class="nav-menu">
+                <li><a href="#dashboard" class="nav-link active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#bookings" class="nav-link" data-section="bookings"><i class="fas fa-calendar-alt"></i> Buchungen</a></li>
+                <li><a href="#clients" class="nav-link" data-section="clients"><i class="fas fa-users"></i> Klienten</a></li>
+                <li><a href="#content" class="nav-link" data-section="content"><i class="fas fa-edit"></i> Inhalte</a></li>
+                <li><a href="#analytics" class="nav-link" data-section="analytics"><i class="fas fa-chart-bar"></i> Analysen</a></li>
+                <li><a href="#settings" class="nav-link" data-section="settings"><i class="fas fa-cog"></i> Einstellungen</a></li>
+            </ul>
+        </nav>
+
+        <!-- Admin Content -->
+        <main class="admin-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section active">
+                <div class="dashboard-grid">
+                    <!-- Statistik Cards -->
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="stat-content">
+                            <h3 id="totalBookings">0</h3>
+                            <p>Aktive Buchungen</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-content">
+                            <h3 id="totalClients">0</h3>
+                            <p>Klienten</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-euro-sign"></i></div>
+                        <div class="stat-content">
+                            <h3 id="monthlyRevenue">0€</h3>
+                            <p>Monatlicher Umsatz</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="stat-content">
+                            <h3 id="conversionRate">0%</h3>
+                            <p>Konversionsrate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h3>Buchungen letzte 7 Tage</h3>
+                        <canvas id="bookingsChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>Beliebteste Services</h3>
+                        <canvas id="servicesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="recent-bookings">
+                    <h3>Letzte Buchungen</h3>
+                    <div id="recentBookingsList" class="bookings-list">
+                        <!-- Dynamisch gefüllt -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bookings Section -->
+            <section id="bookings" class="admin-section">
+                <div class="section-header">
+                    <h2>📅 Buchungsverwaltung</h2>
+                    <div class="header-actions">
+                        <input type="text" id="bookingSearch" placeholder="Buchungen suchen..." />
+                        <button class="btn btn-primary" onclick="exportBookings()"><i class="fas fa-download"></i> Exportieren</button>
+                    </div>
+                </div>
+
+                <div class="bookings-table-container">
+                    <table id="bookingsTable" class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Buchungs-ID</th>
+                                <th>Name</th>
+                                <th>Service</th>
+                                <th>Datum</th>
+                                <th>Uhrzeit</th>
+                                <th>Status</th>
+                                <th>Aktionen</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookingsTableBody">
+                            <!-- Dynamisch gefüllt -->
+                        </tbody>
+                    <table>
+                </div>
+            </section>
+
+            <!-- Clients Section -->
+            <section id="clients" class="admin-section">
+                <div class="section-header">
+                    <h2>👥 Klientenverwaltung</h2>
+                    <div class="header-actions">
+                        <input type="text" id="clientSearch" placeholder="Klienten suchen..." />
+                        <button class="btn btn-primary" onclick="addClient()"><i class="fas fa-plus"></i> Neuer Klient</button>
+                    </div>
+                </div>
+
+                <div class="clients-grid" id="clientsGrid">
+                    <!-- Dynamisch gefüllt --
+                </div>
+            </section>
+
+            <!-- Content Section -->
+            <section id="content" class="admin-section">
+                <div class="section-header">
+                    <h2>📝 Inhaltsverwaltung</h2>
+                    <p>Website-Inhalte bearbeiten und verwalten</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Startseite</h3>
+                        <p>Hauptseite der Website</p>
+                        <button class="btn btn-outline" onclick="editPage('index')">Bearbeiten</button>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Rezepte</h3>
+                        <p>Rezept-Datenbank verwalten</p>
+                        <button class="btn btn-outline" onclick="editRecipes()">Bearbeiten</button>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Blog</h3>
+                        <p>Blog-Beiträge verwalten</p>
+                        <button class="btn btn-outline" onclick="editBlog()">Bearbeiten</button>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>FAQ</h3>
+                        <p>Häufig gestellte Fragen</p>
+                        <button class="btn btn-outline" onclick="editFAQ()">Bearbeiten</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="admin-section">
+                <div class="section-header">
+                    <h2>📊 Website-Analysen</h2>
+                    <p>Besucherstatistiken und Nutzerverhalten</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Besucher heute</h3>
+                        <p class="big-number">127</p>
+                        <span class="change positive">+12%</span>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3>Seitenaufrufe</h3>
+                        <p class="big-number">2.847</p>
+                        <span class="change positive">+8%</span>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3>Buchungsrate</h3>
+                        <p class="big-number">3.2%</p>
+                        <span class="change negative">-0.5%</span>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3>Konversionsrate</h3>
+                        <p class="big-number">12.8%</p>
+                        <span class="change positive">+2.1%</span>
+                    </div>
+                </div>
+
+                <div class="analytics-charts">
+                    <div class="chart-container">
+                        <h3>Besucherverlauf</h3>
+                        <canvas id="visitorsChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>Top Seiten</h3>
+                        <div class="top-pages-list">
+                            <div class="page-item">
+                                <span>Startseite</span>
+                                <span>1.247 Aufrufe</span>
+                            </div>
+                            <div class="page-item">
+                                <span>Rezepte</span>
+                                <span>892 Aufrufe</span>
+                            </div>
+                            <div class="page-item">
+                                <span>Über mich</span>
+                                <span>654 Aufrufe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="admin-section">
+                <div class="section-header">
+                    <h2>⚙️ Einstellungen</h2>
+                    <p>Admin-Konfiguration und Website-Einstellungen</p>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>Allgemeine Einstellungen</h3>
+                        <form id="generalSettingsForm">
+                            <div class="form-group">
+                                <label>Website-Name</label>
+                                <input type="text" name="siteName" value="Soulsgold" />
+                            </div>
+                            <div class="form-group">
+                                <label>E-Mail-Adresse</label>
+                                <input type="email" name="adminEmail" value="admin@soulsgold.de" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Speichern</button>
+                        </form>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Passwort ändern</h3>
+                        <form id="passwordChangeForm">
+                            <div class="form-group">
+                                <label>Aktuelles Passwort</label>
+                                <input type="password" name="currentPassword" />
+                            </div>
+                            <div class="form-group">
+                                <label>Neues Passwort</label>
+                                <input type="password" name="newPassword" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Passwort ändern</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

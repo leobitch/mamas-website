@@ -1912,3 +1912,628 @@ a:focus {
     background: var(--primary-color);
     color: var(--white);
 }
+/* Sticky Booking Button */
+.sticky-booking-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.sticky-booking-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.sticky-booking-btn.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.sticky-booking-btn:hover {
+    background: var(--secondary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(212, 175, 55, 0.4);
+}
+
+.sticky-booking-btn .btn-text {
+    display: none;
+}
+
+.sticky-booking-btn:hover .btn-text {
+    display: inline;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--medium-gray);
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--danger);
+}
+
+/* Booking Modal Specific */
+.booking-modal {
+    text-align: center;
+}
+
+.booking-modal-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.booking-modal-header p {
+    color: var(--medium-gray);
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.booking-modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.booking-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.booking-info ul {
+    text-align: left;
+    list-style: none;
+}
+
+.booking-info li {
+    margin-bottom: 10px;
+    color: var(--dark-gray);
+}
+
+.booking-options h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.booking-btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.booking-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.booking-btn i {
+    font-size: 18px;
+}
+
+/* Enhanced form styling */
+.form-group select {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--light-gray);
+    border-radius: 10px;
+    font-size: 16px;
+    background: var(--white);
+    transition: border-color 0.3s ease;
+    font-family: var(--font-primary);
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(45, 95, 79, 0.1);
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        padding: 30px 20px;
+    }
+    
+    .booking-modal-body {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .sticky-booking-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .booking-modal-header h2 {
+        font-size: 24px;
+    }
+    
+    .booking-info h3,
+    .booking-options h3 {
+        font-size: 18px;
+    }
+}
+
+/* Checkbox styling enhancement */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-top: 5px;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: var(--dark-gray);
+    line-height: 1.4;
+}
+
+/* Form validation styles */
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: var(--danger);
+}
+
+.form-group .error-message {
+    color: var(--danger);
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.form-group .error-message.show {
+    display: block;
+}
+
+/* Success message */
+.form-success {
+    background: var(--success);
+    color: var(--white);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: none;
+}
+
+.form-success.show {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Spiritual Section */
+.spiritual-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
+}
+
+.spiritual-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.spiritual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.spiritual-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.spiritual-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.spiritual-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.spiritual-card p {
+    color: var(--medium-gray);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Meditation Downloads */
+.meditation-downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--primary-light);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.download-btn i {
+    font-size: 16px;
+}
+
+/* Moon Calendar */
+.moon-calendar {
+    text-align: left;
+}
+
+.current-moon-phase h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.moon-phase-display {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--light-gray);
+    border-radius: 10px;
+}
+
+.moon-icon {
+    font-size: 32px;
+}
+
+.moon-info strong {
+    display: block;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.moon-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--medium-gray);
+}
+
+.moon-meditation-tip {
+    background: var(--healing-cream);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.moon-meditation-tip p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--dark-gray);
+}
+
+/* Angel Cards */
+.angel-card-container {
+    text-align: center;
+}
+
+.angel-card-display {
+    margin-bottom: 25px;
+}
+
+.angel-card-front {
+    background: linear-gradient(135deg, var(--healing-lavender) 0%, var(--healing-cream) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.angel-card-front h4 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.angel-symbol {
+    font-size: 36px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.angel-message {
+    font-style: italic;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.angel-name {
+    color: var(--medium-gray);
+    font-size: 14px;
+    margin: 0;
+}
+
+.angel-card-btn {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.angel-card-btn:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* Community Links */
+.community-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.community-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    background: var(--light-gray);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+}
+
+.community-link:hover {
+    background: var(--primary-light);
+    color: var(--white);
+    transform: translateX(5px);
+}
+
+.community-link i {
+    font-size: 20px;
+    width: 20px;
+    text-align: center;
+}
+
+.community-link.telegram-link:hover {
+    background: #0088cc;
+    color: var(--white);
+}
+
+/* Responsive Spiritual Section */
+@media (max-width: 768px) {
+    .spiritual-section {
+        padding: 60px 0;
+    }
+    
+    .spiritual-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .spiritual-card {
+        padding: 30px 20px;
+    }
+    
+    .moon-phase-display {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .meditation-downloads {
+        align-items: center;
+    }
+    
+    .download-btn {
+        max-width: 250px;
+    }
+}
+
+/* Angel card and moon phase animations */
+#dailyAngelCard,
+#currentMoonPhase {
+    transition: all 0.3s ease;
+}
+
+.angel-card-front {
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.moon-icon {
+    animation: moonGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow {
+    0% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); }
+    100% { filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)); }
+}
+
+/* Legal Pages (Impressum & Datenschutz) */
+.legal-section {
+    padding: 100px 0;
+    background: var(--light-gray);
+    min-height: 80vh;
+}
+
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-section-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.legal-section-box h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.legal-section-box h3 {
+    color: var(--primary-color);
+    margin: 25px 0 15px 0;
+    font-size: 20px;
+}
+
+.legal-section-box p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: var(--dark-gray);
+}
+
+.legal-section-box ul {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.legal-section-box li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+    color: var(--dark-gray);
+}
+
+.legal-section-box strong {
+    color: var(--primary-color);
+}
+
+/* Responsive Legal Section */
+@media (max-width: 768px) {
+    .legal-section {
+        padding: 60px 0;
+    }
+    
+    .legal-section-box {
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+    
+    .legal-section-box h2 {
+        font-size: 22px;
+    }
+    
+    .legal-section-box h3 {
+        font-size: 18px;
+    }
+}

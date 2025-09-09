@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollEffects();
     initAnimations();
     initContactForm();
+    initStickyBooking();
+    initSpiritualFeatures();
     initSmoothScrolling();
     initScrollToTop();
 });
@@ -587,5 +589,447 @@ function initScrollBasedAnimations() {
     }, 100));
 }
 
+/* =====================================
+   Spiritual Features
+   ===================================== */
+function initSpiritualFeatures() {
+    // Angel card functionality
+    const drawAngelCardBtn = document.getElementById('drawAngelCard');
+    const angelCardDisplay = document.getElementById('dailyAngelCard');
+    
+    if (drawAngelCardBtn && angelCardDisplay) {
+        const angelCards = [
+            {
+                symbol: '✨',
+                message: 'Vertraue dem Prozess deiner Heilung. Die Engel stehen dir zur Seite.',
+                angel: 'Erzengel Raphael',
+                color: 'linear-gradient(135deg, #c8b5d6 0%, #f7f4f0 100%)'
+            },
+            {
+                symbol: '🕊️',
+                message: 'Friede und Liebe umgeben dich. Alles ist gut so wie es ist.',
+                angel: 'Erzengel Michael',
+                color: 'linear-gradient(135deg, #9caf88 0%, #f7f4f0 100%)'
+            },
+            {
+                symbol: '💫',
+                message: 'Deine innere Stimme führt dich auf den richtigen Weg. Vertraue darauf.',
+                angel: 'Erzengel Gabriel',
+                color: 'linear-gradient(135deg, #d4a574 0%, #f7f4f0 100%)'
+            },
+            {
+                symbol: '🌟',
+                message: 'Du bist ein Licht in dieser Welt. Deine Heilung beginnt jetzt.',
+                angel: 'Erzengel Uriel',
+                color: 'linear-gradient(135deg, #d4af37 0%, #f7f4f0 100%)'
+            },
+            {
+                symbol: '🌸',
+                message: 'Die Engel senden dir bedingungslose Liebe und Mitgefühl.',
+                angel: 'Erzengel Chamuel',
+                color: 'linear-gradient(135deg, #d4a574 0%, #c8b5d6 100%)'
+            }
+        ];
+        
+        drawAngelCardBtn.addEventListener('click', function() {
+            const randomCard = angelCards[Math.floor(Math.random() * angelCards.length)];
+            
+            // Add animation
+            angelCardDisplay.style.opacity = '0';
+            angelCardDisplay.style.transform = 'scale(0.9)';
+            
+            setTimeout(() => {
+                angelCardDisplay.innerHTML = `
+                    <div class="angel-card-front" style="background: ${randomCard.color}">
+                        <h4>Deine heutige Engel-Botschaft:</h4>
+                        <div class="angel-symbol">${randomCard.symbol}</div>
+                        <p class="angel-message">"${randomCard.message}"</p>
+                        <p class="angel-name">- ${randomCard.angel} -</p>
+                    </div>
+                `;
+                
+                angelCardDisplay.style.opacity = '1';
+                angelCardDisplay.style.transform = 'scale(1)';
+            }, 300);
+        });
+    }
+    
+    // Moon phase functionality (simplified)
+    updateMoonPhase();
+    
+    // Meditation downloads
+    const downloadBtns = document.querySelectorAll('.download-btn');
+    downloadBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const downloadType = this.getAttribute('data-download');
+            
+            // Simulate download
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wird heruntergeladen...';
+            this.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-check"></i> Download abgeschlossen!';
+                this.style.background = 'var(--success)';
+                
+                setTimeout(() => {
+                    const originalText = this.textContent;
+                    this.innerHTML = `
+<i class="fas fa-download"></i> ${this.textContent.split(' ')[0]}
+                    `;
+                    this.style.pointerEvents = 'auto';
+                    this.style.background = 'var(--primary-light)';
+                }, 2000);
+            }, 1500);
+        });
+    });
+    
+    // Community links
+    const communityLinks = document.querySelectorAll('.community-link');
+    communityLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Simulate joining community
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wird geladen...';
+            this.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-check"></i> Beigetreten!';
+                this.style.background = 'var(--success)';
+                this.style.color = 'var(--white)';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.pointerEvents = 'auto';
+                    this.style.background = '';
+                    this.style.color = '';
+                }, 2000);
+            }, 1500);
+        });
+    });
+}
+
+function updateMoonPhase() {
+    // Simplified moon phase calculation based on current date
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+    
+    // Calculate moon phase (simplified algorithm)
+    const totalDays = Math.floor((now - new Date(year, 0, 6)) / (1000 * 60 * 60 * 24));
+    const lunarCycle = 29.53;
+    const moonAge = (totalDays % lunarCycle);
+    const moonPhase = moonAge / lunarCycle;
+    
+    const moonPhases = [
+        { symbol: '🌑', name: 'Neumond', meaning: 'Zeit für neue Beginn und Absichten setzen' },
+        { symbol: '🌒', name: 'zunehmender Mond', meaning: 'Zeit für Wachstum und Entwicklung' },
+        { symbol: '🌓', name: 'erstes Viertel', meaning: 'Zeit für Entscheidungen und Durchbruch' },
+        { symbol: '🌔', name: 'zunehmender Mond', meaning: 'Zeit für Vollendung und Integration' },
+        { symbol: '🌕', name: 'Vollmond', meaning: 'Zeit für Fülle und Ernte' },
+        { symbol: '🌖', name: 'abnehmender Mond', meaning: 'Zeit für Loslassen und Reinigung' },
+        { symbol: '🌗', name: 'letztes Viertel', meaning: 'Zeit für Reflexion und Bewertung' },
+        { symbol: '🌘', name: 'abnehmender Mond', meaning: 'Zeit für Vorbereitung auf Neuanfang' }
+    ];
+    
+    const currentPhaseIndex = Math.floor(moonPhase * 8);
+    const currentPhase = moonPhases[currentPhaseIndex] || moonPhases[0];
+    
+    const moonPhaseElement = document.getElementById('currentMoonPhase');
+    if (moonPhaseElement) {
+        moonPhaseElement.innerHTML = `
+            <div class="moon-icon ${currentPhaseIndex === 5 ? 'waning-gibbous' : ''}">${currentPhase.symbol}</div>
+            <div class="moon-info">
+                <strong>${currentPhase.name}</strong>
+                <p>${currentPhase.meaning}</p>
+            </div>
+        `;
+    }
+}
+
+/* =====================================
+   Utility Functions
+   ===================================== */
+function throttle(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+
 // Initialize browser compatibility checks
 checkBrowserSupport();
+
+/* =====================================
+   Enhanced Contact Form & Booking Modal
+   ===================================== */
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    const stickyBookingBtn = document.getElementById('stickyBookingBtn');
+    const bookingModal = document.getElementById('bookingModal');
+    const closeModal = document.querySelector('.close');
+
+    // Initialize booking modal
+    if (stickyBookingBtn && bookingModal) {
+        stickyBookingBtn.addEventListener('click', function() {
+            bookingModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close modal functionality
+        if (closeModal) {
+            closeModal.addEventListener('click', function() {
+                bookingModal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === bookingModal) {
+                bookingModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Handle booking button clicks
+        const bookingBtns = document.querySelectorAll('.booking-btn');
+        bookingBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#contact') {
+                    e.preventDefault();
+                    bookingModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                    
+                    // Smooth scroll to contact form
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Focus on the first form field
+                        setTimeout(() => {
+                            const firstInput = contactForm.querySelector('input[type="text"]');
+                            if (firstInput) firstInput.focus();
+                        }, 1000);
+                    }
+                }
+            });
+        });
+    }
+
+    // Enhanced form validation
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateContactForm()) {
+                // Simulate form submission
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                // Show loading state
+                submitBtn.innerHTML = 'Wird gesendet... <i class="fas fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    // Show success message
+                    showFormSuccess('Vielen Dank! Deine Nachricht wurde erfolgreich gesendet. Ich melde mich innerhalb von 24 Stunden bei dir.');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        const successMsg = document.querySelector('.form-success');
+                        if (successMsg) successMsg.classList.remove('show');
+                    }, 5000);
+                    
+                }, 2000);
+            }
+        });
+
+        // Real-time validation
+        const formFields = contactForm.querySelectorAll('input, select, textarea');
+        formFields.forEach(field => {
+            field.addEventListener('blur', function() {
+                validateField(this);
+            });
+            
+            field.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validateField(this);
+                }
+            });
+        });
+    }
+}
+
+function validateContactForm() {
+    const form = document.getElementById('contactForm');
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+
+    requiredFields.forEach(field => {
+        if (!validateField(field)) {
+            isValid = false;
+        }
+    });
+
+    return isValid;
+}
+
+function validateField(field) {
+    const fieldName = field.name;
+    const value = field.value.trim();
+    let isValid = true;
+    let errorMessage = '';
+
+    // Remove previous error state
+    field.classList.remove('error');
+    const errorElement = field.parentElement.querySelector('.error-message');
+    if (errorElement) {
+        errorElement.classList.remove('show');
+    }
+
+    // Validation rules
+    switch (fieldName) {
+        case 'name':
+            if (value.length < 2) {
+                isValid = false;
+                errorMessage = 'Bitte gib deinen Vornamen ein (min. 2 Zeichen).';
+            }
+            break;
+            
+        case 'email':
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                isValid = false;
+                errorMessage = 'Bitte gib eine gültige E-Mail-Adresse ein.';
+            }
+            break;
+            
+        case 'interest':
+            if (!value) {
+                isValid = false;
+                errorMessage = 'Bitte wähle ein Interessensgebiet aus.';
+            }
+            break;
+            
+        case 'message':
+            if (value.length < 10) {
+                isValid = false;
+                errorMessage = 'Bitte gib eine Nachricht ein (min. 10 Zeichen).';
+            }
+            break;
+            
+        case 'privacy':
+            if (!field.checked) {
+                isValid = false;
+                errorMessage = 'Die Zustimmung zur Datenschutzerklärung ist erforderlich.';
+            }
+            break;
+    }
+
+    if (!isValid) {
+        field.classList.add('error');
+        if (errorElement) {
+            errorElement.textContent = errorMessage;
+            errorElement.classList.add('show');
+        } else {
+            // Create error element if it doesn't exist
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message show';
+            errorDiv.textContent = errorMessage;
+            field.parentElement.appendChild(errorDiv);
+        }
+    }
+
+    return isValid;
+}
+
+function showFormSuccess(message) {
+    const form = document.getElementById('contactForm');
+    const existingSuccess = form.querySelector('.form-success');
+    
+    if (existingSuccess) {
+        existingSuccess.remove();
+    }
+    
+    const successDiv = document.createElement('div');
+    successDiv.className = 'form-success show';
+    successDiv.textContent = message;
+    
+    form.insertBefore(successDiv, form.firstChild);
+}
+
+// Add form validation styles to head
+const style = document.createElement('style');
+style.textContent = `
+    .form-group {
+        position: relative;
+    }
+    
+    .form-group .error-message {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        font-size: 12px;
+        color: #c85a54;
+        margin-top: 2px;
+    }
+`;
+document.head.appendChild(style);
+
+/* =====================================
+   Sticky Booking Button
+   ===================================== */
+function initStickyBooking() {
+    const stickyBtn = document.getElementById('stickyBookingBtn');
+    
+    if (stickyBtn) {
+        // Show button after user scrolls down
+        window.addEventListener('scroll', throttle(function() {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Show button when user has scrolled past hero section
+            if (scrollPosition > windowHeight * 0.5) {
+                stickyBtn.classList.add('visible');
+            } else {
+                stickyBtn.classList.remove('visible');
+            }
+            
+            // Hide button when user is near the contact form
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                const contactTop = contactSection.offsetTop;
+                const contactHeight = contactSection.offsetHeight;
+                
+                if (scrollPosition > contactTop - windowHeight && 
+                    scrollPosition < contactTop + contactHeight) {
+                    stickyBtn.classList.add('hidden');
+                } else {
+                    stickyBtn.classList.remove('hidden');
+                }
+            }
+        }, 100));
+    }
+}

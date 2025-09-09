@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+    <!-- Sticky Booking Button -->
+    <button class="sticky-booking-btn" id="stickyBookingBtn">
+        <i class="fas fa-calendar-plus"></i>
+        <span class="btn-text">Kostenloses Erstgespräch</span>
+    </button>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -249,6 +255,146 @@
                                 <li>Begleitung bei Aufarbeitung</li>
                                 <li>Spirituelle Schutzübungen</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Credentials Section -->
+    <section id="trust" class="trust-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Vertrauen & Qualifikation</h2>
+                <p>Ihre Gesundheit ist in guten Händen - erfahren, zertifiziert und mit Herzblut</p>
+            </div>
+            
+            <div class="trust-content">
+                <div class="credentials-grid">
+                    <div class="credential-card">
+                        <div class="credential-badge">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Medical Medium Coach</h3>
+                        <p>Zertifizierte Ausbildung nach Anthony William mit Fokus auf Trauma-sensible Ernährungsberatung</p>
+                        <a href="#certificates" class="certificate-link" onclick="showCertificate('medical-medium')">Zertifikat anzeigen →</a>
+                    </div>
+                    
+                    <div class="credential-card">
+                        <div class="credential-badge">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Somatic Experiencing®</h3>
+                        <p>Fortbildung in Traumatherapie zur sicheren Begleitung von Klienten mit PTBS und Trauma</p>
+                        <a href="#certificates" class="certificate-link" onclick="showCertificate('somatic')">Zertifikat anzeigen →</a>
+                    </div>
+                    
+                    <div class="credential-card">
+                        <div class="credential-badge">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>IHC Mitglied</h3>
+                        <p>Internationale Heilpraktiker- und Coachvereinigung - für höchste Qualitätsstandards</p>
+                        <a href="#certificates" class="certificate-link" onclick="showCertificate('ihc')">Zertifikat anzeigen →</a>
+                    </div>
+                </div>
+                
+                <div class="testimonials-section">
+                    <h3>Erfolgsgeschichten</h3>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote">„Nach Jahren von PTBS und Panikattacken habe ich endlich wieder einen stabilen Schlaf gefunden. Die Kombination aus Medical Medium Ernährung und Christinas Begleitung hat mein Leben verändert.“</div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">AS</div>
+                                    <div class="author-info">
+                                        <strong>Anna S.</strong>
+                                        <span>3 Monate Begleitung</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote">„Die Brain Shots und die spirituellen Übungen haben meine Angstzustände signifikant reduziert. Ich fühle mich wieder sicher und geerdet.“</div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">MW</div>
+                                    <div class="author-info">
+                                        <strong>Michael W.</strong>
+                                        <span>6 Monate Begleitung</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote">„Die schwermetall-Ausleitung war ein Wendepunkt. Meine Konzentration ist zurück und ich habe wieder Energie für mein Leben.“</div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">LM</div>
+                                    <div class="author-info">
+                                        <strong>Lisa M.</strong>
+                                        <span>4 Monate Begleitung</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="before-after-section">
+                    <h3>Before/After Cases</h3>
+                    <div class="cases-grid">
+                        <div class="case-card">
+                            <div class="case-header">
+                                <h4>PTBS-Fall</h4>
+                                <span class="case-duration">3 Monate Begleitung</span>
+                            </div>
+                            <div class="case-content">
+                                <div class="case-before">
+                                    <strong>Vorher:</strong>
+                                    <ul>
+                                        <li>Nächtliche Panikattacken</li>
+                                        <li>Schlafstörungen</li>
+                                        <li>Konzentrationsprobleme</li>
+                                    </ul>
+                                </div>
+                                <div class="case-after">
+                                    <strong>Nachher:</strong>
+                                    <ul>
+                                        <li>Stabiler Schlaf</li>
+                                        <li>Keine Panikattacken mehr</li>
+                                        <li>Konzentration zurück</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="case-card">
+                            <div class="case-header">
+                                <h4>Angststörung</h4>
+                                <span class="case-duration">6 Monate Begleitung</span>
+                            </div>
+                            <div class="case-content">
+                                <div class="case-before">
+                                    <strong>Vorher:</strong>
+                                    <ul>
+                                        <li>Soziale Ängste</li>
+                                        <li>Herzrasen</li>
+                                        <li>Überaktive Gedanken</li>
+                                    </ul>
+                                </div>
+                                <div class="case-after">
+                                    <strong>Nachher:</strong>
+                                    <ul>
+                                        <li>Soziale Sicherheit</li>
+                                        <li>Ruhiges Herz</li>
+                                        <li>Klarheit im Denken</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -549,6 +695,96 @@
         </div>
     </section>
 
+    <!-- Spiritual Features Section -->
+    <section id="spiritual" class="spiritual-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Spirituelle Unterstützung für deine Heilung</h2>
+                <p>Meditationen, Engel-Karten und spirituelle Werkzeuge für deinen Weg</p>
+            </div>
+            <div class="spiritual-content">
+                <div class="spiritual-grid">
+                    <!-- Free Meditations -->
+                    <div class="spiritual-card">
+                        <div class="card-icon">🧘‍♀️</div>
+                        <h3>Kostenlose Meditationen</h3>
+                        <p>Tiefenentspannung und spirituelle Verbindung durch geführte Meditationen.</p>
+                        <div class="meditation-downloads">
+                            <a href="#" class="download-btn" data-download="heilungs-meditation">
+                                <i class="fas fa-download"></i> Heilungs-Meditation (15 Min.)
+                            </a>
+                            <a href="#" class="download-btn" data-download="morgen-meditation">
+                                <i class="fas fa-download"></i> Morgen-Meditation (10 Min.)
+                            </a>
+                            <a href="#" class="download-btn" data-download="schutz-meditation">
+                                <i class="fas fa-download"></i> Schutz-Meditation (12 Min.)
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Moon Meditation Calendar -->
+                    <div class="spiritual-card">
+                        <div class="card-icon">🌙</div>
+                        <h3>Mond-Meditations-Kalender</h3>
+                        <p>Nutze die Kraft der Mondphasen für deine spirituelle Praxis.</p>
+                        <div class="moon-calendar">
+                            <div class="current-moon-phase">
+                                <h4>Aktuelle Mondphase:</h4>
+                                <div class="moon-phase-display" id="currentMoonPhase">
+                                    <div class="moon-icon waxing-gibbous">🌔</div>
+                                    <div class="moon-info">
+                                        <strong>Abnehmender Mond</strong>
+                                        <p>Zeit für Loslassen und innere Arbeit</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="moon-meditation-tip">
+                                <p><strong>Tipp:</strong> Im abnehmenden Mond sind besonders kraftvolle Meditationen zur inneren Reinigung und zum Loslassen alter Muster.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Angel Cards -->
+                    <div class="spiritual-card">
+                        <div class="card-icon">👼</div>
+                        <h3>Engel-Karten</h3>
+                        <p>Tägliche Weisheit und Führung von den Engeln für deinen Heilungsweg.</p>
+                        <div class="angel-card-container">
+                            <div class="angel-card-display" id="dailyAngelCard">
+                                <div class="angel-card-front">
+                                    <h4>Deine heutige Engel-Botschaft:</h4>
+                                    <div class="angel-symbol">✨</div>
+                                    <p class="angel-message">"Vertraue dem Prozess deiner Heilung. Die Engel stehen dir zur Seite."</p>
+                                    <p class="angel-name">- Erzengel Raphael -</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline angel-card-btn" id="drawAngelCard">
+                                <i class="fas fa-hand-holding-heart"></i> Neue Karte ziehen
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Spiritual Community -->
+                    <div class="spiritual-card">
+                        <div class="card-icon">💫</div>
+                        <h3>Spirituelle Community</h3>
+                        <p>Tritt bei unseren Telegram-Gruppen für tägliche spirituelle Impulse.</p>
+                        <div class="community-links">
+                            <a href="#" class="community-link telegram-link">
+                                <i class="fab fa-telegram"></i>
+                                <span>Tägliche Meditationen</span>
+                            </a>
+                            <a href="#" class="community-link">
+                                <i class="fas fa-heart"></i>
+                                <span>Spirituelle Austauschrunde</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -618,6 +854,17 @@
                             <input type="tel" id="phone" name="phone" placeholder="Für Rückfragen">
                         </div>
                         <div class="form-group">
+                            <label for="interest">Ich interessiere mich für... *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Bitte wählen...</option>
+                                <option value="ernaehrung">Ernährung nach Medical Medium</option>
+                                <option value="spiritualitaet">Spirituelle Begleitung</option>
+                                <option value="beides">Beides - Ernährung & Spiritualität</option>
+                                <option value="trauma">Trauma-Aufarbeitung</option>
+                                <option value="sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="subject">Womit kann ich dir helfen?</label>
                             <select id="subject" name="subject">
                                 <option value="">Bitte wählen...</option>
@@ -636,6 +883,10 @@
                             <textarea id="message" name="message" rows="5" required placeholder="Erzähle mir von deinen Herausforderungen, Zielen und was du dir von unserer Zusammenarbeit erhöffst. Ich behandle alles vertraulich und mit Mitgefühl."></textarea>
                         </div>
                         <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Ich möchte regelmäßig wertvolle Tipps, Rezepte und Informationen zu Heilung und Transformation erhalten.</label>
+                        </div>
+                        <div class="form-group checkbox-group">
                             <input type="checkbox" id="privacy" name="privacy" required>
                             <label for="privacy">Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu und möchte gelegentlich hilfreiche Informationen über Heilung erhalten. *</label>
                         </div>
@@ -646,6 +897,45 @@
             </div>
         </div>
     </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content booking-modal">
+            <span class="close">&times;</span>
+            <div class="booking-modal-header">
+                <h2>Kostenloses Erstgespräch buchen</h2>
+                <p>30 Minuten kostenlose Beratung zu deinem Heilungsweg</p>
+            </div>
+            <div class="booking-modal-body">
+                <div class="booking-info">
+                    <h3>Was du erwartet:</h3>
+                    <ul>
+                        <li>✨ Persönliche Analyse deiner Situation</li>
+                        <li>🧠 Erste Empfehlungen für deinen Weg</li>
+                        <li>🌱 Keine Verkaufsgespräche - reine Hilfe</li>
+                        <li>🙏 Vertrauliche & einfühlsame Begleitung</li>
+                    </ul>
+                </div>
+                <div class="booking-options">
+                    <h3>Buche jetzt deinen Termin:</h3>
+                    <div class="booking-btn-container">
+                        <a href="#contact" class="btn btn-primary booking-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span>Über Kontaktformular</span>
+                        </a>
+                        <!-- Calendly integration placeholder -->
+                        <div class="calendly-widget">
+                            <!-- Calendly embed code would go here -->
+                            <p><a href="https://calendly.com/soulsgold/erstgespraech" target="_blank" class="btn btn-outline">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Direkt buchen mit Calendly</span>
+                            </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
