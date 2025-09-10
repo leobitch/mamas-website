@@ -51,7 +51,7 @@ const recipes = {
             '1/2 TL Melatonin-Pulver'
         ],
         instructions: [
-            'Alle Zutaten in einen Mixer geben',
+            'Alle Zutaben in einen Mixer geben',
             'Gründlich mixen bis eine glatte Flüssigkeit entsteht',
             '30 Minuten vor dem Schlafengehen trinken',
             'Keine elektronischen Geräte mehr benutzen',
