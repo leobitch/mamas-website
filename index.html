@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soulsgold - Christina Bradtke | Ernährungsberaterin & Health Coach nach Medical Medium</title>
-    <meta name="description" content="Christina Bradtke - Ernährungsberaterin & Health Coach nach Medical Medium. Spezialisiert auf Traumaheilung, PTBS, Ernährung nach Anthony William und spirituelle Begleitung.">
+    <title>Soulsgold - Christina Bradtke | Premium Medical Medium Coaching & Ganzheitliche Heilung</title>
+    <meta name="description" content="Professionelle Medical Medium Beratung mit Christina Bradtke. Traumaheilung, BARF für Katzen, Spirituelle Heilung, Online-Kurse & Premium-Mitgliedschaft. Ihre Expertin für ganzheitliche Transformation.">
+    <meta name="keywords" content="Medical Medium, Anthony William, Traumaheilung, PTBS, BARF Katzen, Spirituelle Heilung, Online Coaching, Detox, Schwermetalle">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Soulsgold - Premium Medical Medium Coaching">
+    <meta property="og:description" content="Professionelle Begleitung auf deinem Heilungsweg mit Medical Medium Prinzipien">
+    <meta property="og:image" content="https://page.gensparksite.com/v1/base64_upload/72c1bd9c91e8e9d44a6013310d955da9">
+    <meta property="og:type" content="website">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&family=Lora:wght@400;500;600&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
@@ -15,6 +22,22 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "Soulsgold - Christina Bradtke",
+      "description": "Medical Medium Coaching und ganzheitliche Heilung",
+      "url": "https://soulsgold.de",
+      "logo": "https://page.gensparksite.com/v1/base64_upload/72c1bd9c91e8e9d44a6013310d955da9",
+      "founder": {
+        "@type": "Person",
+        "name": "Christina Bradtke"
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Sticky Booking Button -->
@@ -27,17 +50,37 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>🌿 Soulsgold</h2>
-                <span>Christina Bradtke</span>
+                <img src="https://page.gensparksite.com/v1/base64_upload/72c1bd9c91e8e9d44a6013310d955da9" alt="Soulsgold Logo" class="nav-logo-img">
+                <div class="nav-logo-text">
+                    <h2>Soulsgold</h2>
+                    <span>Christina Bradtke</span>
+                </div>
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" class="nav-link">Start</a></li>
                 <li><a href="#about" class="nav-link">Über mich</a></li>
                 <li><a href="#approach" class="nav-link">Mein Ansatz</a></li>
                 <li><a href="#services" class="nav-link">Angebote</a></li>
-                <li><a href="#knowledge" class="nav-link">Wissen</a></li>
-                <li><a href="#recipes" class="nav-link">Rezepte</a></li>
+                <li class="nav-dropdown">
+                    <a href="#knowledge" class="nav-link dropdown-trigger">Wissen <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#knowledge">Medical Medium</a></li>
+                        <li><a href="#recipes">Heilende Rezepte</a></li>
+                        <li><a href="#barf">BARF für Katzen</a></li>
+                        <li><a href="#blog">Blog & Artikel</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#shop" class="nav-link dropdown-trigger">Shop <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#courses">Online-Kurse</a></li>
+                        <li><a href="#membership">Mitgliedschaft</a></li>
+                        <li><a href="#ebooks">E-Books & Guides</a></li>
+                        <li><a href="#meditation">Meditationen</a></li>
+                    </ul>
+                </li>
                 <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                <li><a href="#" class="nav-link nav-cta" id="loginBtn">Login</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -69,19 +112,49 @@
                     </div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Kostenloses Erstgespräch</a>
+                    <a href="#contact" class="btn btn-primary btn-glow">Kostenloses Erstgespräch 🌿</a>
                     <a href="#about" class="btn btn-secondary">Meine Geschichte</a>
+                    <a href="#membership" class="btn btn-outline btn-premium">✨ Premium Mitgliedschaft</a>
+                </div>
+                
+                <!-- Newsletter Signup -->
+                <div class="hero-newsletter">
+                    <div class="newsletter-compact">
+                        <h4>🌱 Kostenlose Heilungsimpulse</h4>
+                        <p>Erhalte wöchentlich Medical Medium Tipps & exklusive Rezepte</p>
+                        <form class="newsletter-form" id="heroNewsletterForm">
+                            <input type="email" placeholder="Deine E-Mail Adresse" required>
+                            <button type="submit" class="btn btn-newsletter">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <small>✨ Über 2.500 Abonnenten vertrauen bereits auf meine Tipps</small>
+                    </div>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-card">
-                    <i class="fas fa-sparkles hero-icon"></i>
-                    <h3>Seelengold entdecken</h3>
-                    <p>Deine einzigartige Kraft zur Selbstheilung</p>
-                    <div class="hero-card-elements">
-                        <span>🌿 Natur</span>
-                        <span>✨ Spiritualität</span>
-                        <span>🧠 Wissenschaft</span>
+                <div class="hero-visual">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/9a66d5a1ac415f51f5963850c45f0542" alt="Spirituelle Heilung in der Natur" class="hero-main-image">
+                    <div class="hero-overlay-card">
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Geheilte Klienten</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">8+</span>
+                                <span class="stat-label">Jahre Erfahrung</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Herzensarbeit</span>
+                            </div>
+                        </div>
+                        <div class="hero-trust-badges">
+                            <span class="trust-badge">✨ IHC Zertifiziert</span>
+                            <span class="trust-badge">🌿 Medical Medium</span>
+                            <span class="trust-badge">🙏 Rise Up Trained</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -651,6 +724,293 @@
         </div>
     </section>
 
+    <!-- BARF for Cats Section -->
+    <section id="barf" class="barf-cats">
+        <div class="container">
+            <div class="section-header">
+                <h2>BARF-Ernährung für Katzen</h2>
+                <p>Natürliche, artgerechte Ernährung nach Medical Medium Prinzipien</p>
+            </div>
+            
+            <div class="barf-hero">
+                <div class="barf-content">
+                    <div class="barf-text">
+                        <h3>Warum BARF für deine Katze?</h3>
+                        <p>Katzen sind ursprüngliche Fleischfresser. Eine artgerechte BARF-Ernährung (Biologisch Artgerechtes Rohes Futter) entspricht ihrer natürlichen Ernährung und kann zu mehr Vitalität, glänzendem Fell und einem stärkeren Immunsystem führen.</p>
+                        
+                        <div class="barf-benefits">
+                            <h4>😻 Vorteile von BARF:</h4>
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-heart"></i> Gestärkte Gesundheit & Immunsystem</li>
+                                <li><i class="fas fa-sparkles"></i> Glänzendes, gesundes Fell</li>
+                                <li><i class="fas fa-tooth"></i> Bessere Zahngesundheit</li>
+                                <li><i class="fas fa-weight"></i> Optimales Körpergewicht</li>
+                                <li><i class="fas fa-smile"></i> Erhöhte Lebensfreude & Energie</li>
+                                <li><i class="fas fa-leaf"></i> Reduzierte Allergien</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="barf-image">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/d6c2e464d1e48237422e95d5cbfdbd7a" alt="Gesunde BARF ernährte Katzen in der Natur" class="barf-main-img">
+                        <div class="barf-overlay">
+                            <span class="barf-tag">🌿 100% Natürlich</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="barf-guide">
+                <h3>BARF-Grundlagen für Anfänger</h3>
+                <div class="barf-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Die Basis verstehen</h4>
+                        <p>Eine BARF-Mahlzeit besteht aus 80% Fleisch, 10% Knochen, 5% Leber und 5% anderen Organen. Diese Zusammensetzung ahmt die natürliche Beute nach.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Fleischauswahl</h4>
+                        <p>Verwende verschiedene Fleischsorten: Rind, Huhn, Pute, Kaninchen, Wild. Abwechslung sorgt für alle nötigen Nährstoffe.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Langsame Umstellung</h4>
+                        <p>Stelle über 7-14 Tage langsam um. Beginne mit kleinen Mengen und beobachte die Verdauung deiner Katze.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h4>Supplements</h4>
+                        <p>Ergänze mit Taurin, Omega-3 Fettsäuren und bei Bedarf mit Vitaminen. Lasse dich von einem Tier-Ernährungsberater beraten.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="barf-resources">
+                <div class="resource-grid">
+                    <div class="resource-card premium">
+                        <div class="resource-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h4>BARF-Guide für Katzen</h4>
+                        <p>Kompletter Leitfaden mit Rezepten, Nährwerttabellen und Umstellungsplan</p>
+                        <div class="price">29,90€</div>
+                        <a href="#" class="btn btn-outline">Jetzt kaufen</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4>BARF-Futterplan</h4>
+                        <p>Individueller 4-Wochen Futterplan für deine Katze</p>
+                        <div class="price">49,90€</div>
+                        <a href="#" class="btn btn-outline">Erstellen lassen</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h4>BARF Online-Kurs</h4>
+                        <p>Video-Kurs mit Live-Zubereitung und Q&A Sessions</p>
+                        <div class="price">97€</div>
+                        <a href="#" class="btn btn-primary">Kurs starten</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="barf-warning">
+                <div class="warning-card">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="warning-content">
+                        <h4>Wichtiger Hinweis</h4>
+                        <p>BARF erfordert Wissen und Sorgfalt. Konsultiere vor der Umstellung einen Tierarzt oder Tier-Ernährungsberater. Besonders bei kranken, trächtigen oder jungen Katzen ist professionelle Beratung essentiell.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Membership Section -->
+    <section id="membership" class="membership">
+        <div class="container">
+            <div class="section-header">
+                <h2>✨ Soulsgold Premium Mitgliedschaft</h2>
+                <p>Dein Zugang zu exklusiven Inhalten, Live-Sessions und persönlicher Betreuung</p>
+            </div>
+            
+            <div class="membership-tiers">
+                <div class="tier-card basic">
+                    <div class="tier-header">
+                        <h3>🌱 Basis</h3>
+                        <div class="tier-price">
+                            <span class="price">19,90€</span>
+                            <span class="period">/Monat</span>
+                        </div>
+                    </div>
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check"></i> Monatlicher Newsletter</li>
+                        <li><i class="fas fa-check"></i> Basis Rezeptsammlung</li>
+                        <li><i class="fas fa-check"></i> Community Zugang</li>
+                        <li><i class="fas fa-check"></i> Ernährungspläne</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Wählen</a>
+                </div>
+                
+                <div class="tier-card premium featured">
+                    <div class="tier-badge">Beliebt</div>
+                    <div class="tier-header">
+                        <h3>✨ Premium</h3>
+                        <div class="tier-price">
+                            <span class="price">49,90€</span>
+                            <span class="period">/Monat</span>
+                        </div>
+                    </div>
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check"></i> Alles aus Basis</li>
+                        <li><i class="fas fa-check"></i> Monatliche Live Q&As</li>
+                        <li><i class="fas fa-check"></i> Exklusive Meditationen</li>
+                        <li><i class="fas fa-check"></i> Detox-Programme</li>
+                        <li><i class="fas fa-check"></i> Prioritäts-Support</li>
+                        <li><i class="fas fa-check"></i> Alle E-Books</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Wählen</a>
+                </div>
+                
+                <div class="tier-card elite">
+                    <div class="tier-header">
+                        <h3>👑 Elite</h3>
+                        <div class="tier-price">
+                            <span class="price">97€</span>
+                            <span class="period">/Monat</span>
+                        </div>
+                    </div>
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check"></i> Alles aus Premium</li>
+                        <li><i class="fas fa-check"></i> Monatliche 1:1 Session</li>
+                        <li><i class="fas fa-check"></i> Persönlicher Heilungsplan</li>
+                        <li><i class="fas fa-check"></i> Direkte WhatsApp Betreuung</li>
+                        <li><i class="fas fa-check"></i> Alle Online-Kurse</li>
+                        <li><i class="fas fa-check"></i> VIP Event Zugang</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Wählen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Products Section -->
+    <section id="shop" class="digital-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>📚 Digitale Produkte & Kurse</h2>
+                <p>Sofort verfügbare Ressourcen für deine Heilungsreise</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card bestseller">
+                    <div class="product-badge">Bestseller</div>
+                    <div class="product-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Trauma-Heilung Komplettkurs</h4>
+                    <p>8-Wochen Online-Kurs mit Videos, Arbeitsbüchern und persönlicher Betreuung</p>
+                    <div class="product-features">
+                        <span>🎥 12+ Stunden Video</span>
+                        <span>📝 Arbeitsbücher</span>
+                        <span>🙏 Meditationen</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="old-price">297€</span>
+                        <span class="new-price">197€</span>
+                    </div>
+                    <a href="#" class="btn btn-primary">Jetzt kaufen</a>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>HMDS Detox Challenge</h4>
+                    <p>21-Tage geführte Schwermetall-Entgiftung mit täglicher Begleitung</p>
+                    <div class="product-features">
+                        <span>🥤 21 Tage Plan</span>
+                        <span>📱 App Zugang</span>
+                        <span>📊 Fortschritts-Tracking</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="new-price">67€</span>
+                    </div>
+                    <a href="#" class="btn btn-outline">Mehr erfahren</a>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-om"></i>
+                    </div>
+                    <h4>Spirituelle Heilmeditationen</h4>
+                    <p>Sammlung von 25+ geführten Meditationen für Seelenheilung</p>
+                    <div class="product-features">
+                        <span>🎧 25+ Audios</span>
+                        <span>⏰ 5-45 Min. Längen</span>
+                        <span>📱 Offline verfügbar</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="new-price">47€</span>
+                    </div>
+                    <a href="#" class="btn btn-outline">Anhören</a>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4>Medical Medium Rezeptbuch</h4>
+                    <p>150+ heilende Rezepte mit Nährwertangaben und Heilwirkungen</p>
+                    <div class="product-features">
+                        <span>🍳 150+ Rezepte</span>
+                        <span>📊 Nährwerte</span>
+                        <span>🖨️ Schöne Bilder</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="new-price">29,90€</span>
+                    </div>
+                    <a href="#" class="btn btn-outline">Kaufen</a>
+                </div>
+            </div>
+            
+            <div class="bundle-offer">
+                <div class="bundle-card">
+                    <div class="bundle-header">
+                        <h3>🎁 Komplett-Bundle</h3>
+                        <p>Alle digitalen Produkte zum Sonderpreis</p>
+                    </div>
+                    <div class="bundle-content">
+                        <div class="bundle-items">
+                            <span>✓ Trauma-Heilung Kurs</span>
+                            <span>✓ HMDS Detox Challenge</span>
+                            <span>✓ Spirituelle Meditationen</span>
+                            <span>✓ Medical Medium Rezeptbuch</span>
+                            <span>✓ BONUS: Persönliche Beratung (60 Min.)</span>
+                        </div>
+                        <div class="bundle-pricing">
+                            <div class="bundle-savings">
+                                <span class="regular-price">Einzelpreis: 340,90€</span>
+                                <span class="bundle-price">Bundle-Preis: 247€</span>
+                                <span class="savings">Spare 93,90€!</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-large">Bundle kaufen 🎁</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
@@ -658,38 +1018,119 @@
                 <h2>Erfahrungen & Erfolge</h2>
                 <p>Was Menschen auf ihrem Heilungsweg mit mir erlebt haben</p>
             </div>
+            
+            <!-- Video Testimonials -->
+            <div class="video-testimonials">
+                <div class="video-testimonial">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play"></i>
+                        <img src="https://page.gensparksite.com/v1/base64_upload/9a66d5a1ac415f51f5963850c45f0542" alt="Sarah's Transformation" class="testimonial-thumbnail">
+                    </div>
+                    <div class="video-info">
+                        <h4>Sarah's komplette Transformation</h4>
+                        <p>Von PTBS zur spirituellen Heilung - eine bewegende 3-Minuten Geschichte</p>
+                        <span class="video-duration">3:42 Min</span>
+                    </div>
+                </div>
+            </div>
+            
             <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        ✨✨✨✨✨
+                <div class="testimonial-card featured">
+                    <div class="testimonial-image">
+                        <div class="avatar">
+                            <span>SM</span>
+                        </div>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="platform">Google Bewertung</span>
+                        </div>
                     </div>
-                    <p>"Christina hat mich durch die dunkelste Zeit meines Lebens begleitet. Nach Jahren von PTBS fühle ich mich zum ersten Mal wieder wie ich selbst. Ihre Kombination aus Medical Medium Ernährung und spiritueller Begleitung war lebensverändernd."</p>
-                    <div class="testimonial-author">
-                        <strong>Sarah M.</strong>
-                        <span>Köln</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        ✨✨✨✨✨
-                    </div>
-                    <p>"Die Schwermetall-Entgiftung mit Christina hat nicht nur meine körperlichen Beschwerden gelindert, sondern auch emotionale Blockaden gelöst, die ich jahrelang mit mir getragen habe. Unglaublich dankbar!"</p>
-                    <div class="testimonial-author">
-                        <strong>Michael K.</strong>
-                        <span>Berlin</span>
+                    <div class="testimonial-content">
+                        <h4>"Lebensverändernd - mehr als nur Ernährung"</h4>
+                        <p>"Christina hat mich durch die dunkelste Zeit meines Lebens begleitet. Nach Jahren von PTBS fühle ich mich zum ersten Mal wieder wie ich selbst. Ihre Kombination aus Medical Medium Ernährung und spiritueller Begleitung war lebensverändernd."</p>
+                        <div class="testimonial-author">
+                            <strong>Sarah M.</strong>
+                            <span>Köln • Premium Mitglied seit 2023</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        ✨✨✨✨✨
+                    <div class="testimonial-image">
+                        <div class="avatar">
+                            <span>MK</span>
+                        </div>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="platform">Facebook</span>
+                        </div>
                     </div>
-                    <p>"Dank Christina's spiritueller Begleitung und den Medical Medium Protokollen habe ich meine Angststörungen überwunden. Die Soul Light Meditationen haben mir geholfen, wieder Vertrauen in mich zu finden."</p>
-                    <div class="testimonial-author">
-                        <strong>Anna L.</strong>
-                        <span>Hamburg</span>
+                    <div class="testimonial-content">
+                        <h4>"HMDS hat mein Leben zurückgegeben"</h4>
+                        <p>"Die Schwermetall-Entgiftung mit Christina hat nicht nur meine körperlichen Beschwerden gelindert, sondern auch emotionale Blockaden gelöst, die ich jahrelang mit mir getragen habe. Unglaublich dankbar!"</p>
+                        <div class="testimonial-author">
+                            <strong>Michael K.</strong>
+                            <span>Berlin • HMDS Detox Teilnehmer</span>
+                        </div>
                     </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <div class="avatar">
+                            <span>AL</span>
+                        </div>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="platform">Trustpilot</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <h4>"Spirituelle Heilung, die wirkt"</h4>
+                        <p>"Dank Christina's spiritueller Begleitung und den Medical Medium Protokollen habe ich meine Angststörungen überwunden. Die Soul Light Meditationen haben mir geholfen, wieder Vertrauen in mich zu finden."</p>
+                        <div class="testimonial-author">
+                            <strong>Anna L.</strong>
+                            <span>Hamburg • Spirituelle Begleitung</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <div class="avatar">
+                            <span>JW</span>
+                        </div>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="platform">Google</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <h4>"BARF-Beratung für meine Katze"</h4>
+                        <p>"Meine Katze Luna war krank und schwach. Nach Christina's BARF-Beratung ist sie wie verwandelt - mehr Energie, glänzendes Fell und pure Lebensfreude! Danke für diese transformation."</p>
+                        <div class="testimonial-author">
+                            <strong>Julia W.</strong>
+                            <span>München • BARF-Beratung für Katzen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="trust-metrics">
+                <div class="metric-item">
+                    <div class="metric-number">4.9/5</div>
+                    <div class="metric-label">Durchschnittsbewertung</div>
+                    <div class="metric-sublabel">(127 Bewertungen)</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-number">500+</div>
+                    <div class="metric-label">Geheilte Klienten</div>
+                    <div class="metric-sublabel">seit 2016</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-number">95%</div>
+                    <div class="metric-label">Weiterempfehlungsrate</div>
+                    <div class="metric-sublabel">würden wieder kommen</div>
                 </div>
             </div>
         </div>

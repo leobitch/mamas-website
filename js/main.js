@@ -9,10 +9,15 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollEffects();
     initAnimations();
     initContactForm();
-    initStickyBooking();
-    initSpiritualFeatures();
     initSmoothScrolling();
     initScrollToTop();
+    initNewsletterForms();
+    initProductCards();
+    initMembershipTiers();
+    initVideoTestimonials();
+    initBARFCalculator();
+    initLoginModal();
+    initPremiumFeatures();
 });
 
 /* =====================================
@@ -548,6 +553,540 @@ window.addEventListener('error', function(event) {
 });
 
 /* =====================================
+   Premium Features & E-Commerce
+   ===================================== */
+
+function initNewsletterForms() {
+    const newsletterForms = document.querySelectorAll('.newsletter-form');
+    
+    newsletterForms.forEach(form => {
+        form.addEventListener('submit', handleNewsletterSubmission);
+    });
+}
+
+function handleNewsletterSubmission(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const email = form.querySelector('input[type="email"]').value;
+    const button = form.querySelector('button');
+    
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showNotification('Bitte geben Sie eine gültige E-Mail-Adresse ein.', 'error');
+        return;
+    }
+    
+    // Show loading state
+    const originalHTML = button.innerHTML;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    button.disabled = true;
+    
+    // Simulate API call
+    setTimeout(() => {
+        button.innerHTML = '<i class="fas fa-check"></i>';
+        form.querySelector('input').value = '';
+        showNotification('🌿 Willkommen! Du erhältst bald deine ersten Heilungsimpulse.', 'success');
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+            button.innerHTML = originalHTML;
+            button.disabled = false;
+        }, 2000);
+        
+        // Track newsletter signup
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'newsletter_signup', {
+                'event_category': 'Newsletter',
+                'event_label': 'Hero Form'
+            });
+        }
+    }, 1500);
+}
+
+function initProductCards() {
+    const productCards = document.querySelectorAll('.product-card');
+    
+    productCards.forEach(card => {
+        const button = card.querySelector('.btn');
+        if (button) {
+            button.addEventListener('click', handleProductPurchase);
+        }
+    });
+}
+
+function handleProductPurchase(event) {
+    event.preventDefault();
+    
+    const button = event.target;
+    const card = button.closest('.product-card');
+    const productName = card.querySelector('h4').textContent;
+    const price = card.querySelector('.new-price').textContent;
+    
+    // Simulate purchase process
+    const originalText = button.textContent;
+    button.textContent = 'Wird geladen...';
+    button.disabled = true;
+    
+    setTimeout(() => {
+        // Show purchase modal (simplified)
+        showPurchaseModal(productName, price);
+        
+        button.textContent = originalText;
+        button.disabled = false;
+        
+        // Track product interest
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'product_click', {
+                'event_category': 'E-Commerce',
+                'event_label': productName,
+                'value': parseFloat(price.replace('€', '').replace(',', '.'))
+            });
+        }
+    }, 1000);
+}
+
+function showPurchaseModal(productName, price) {
+    const modal = document.createElement('div');
+    modal.className = 'purchase-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🛒 ${productName}</h3>
+                <button class="modal-close" onclick="this.closest('.purchase-modal').remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="product-summary">
+                    <p><strong>Preis:</strong> ${price}</p>
+                    <p><strong>Sofortiger Download:</strong> ✅</p>
+                    <p><strong>30 Tage Geld-zurück-Garantie:</strong> ✅</p>
+                </div>
+                <div class="payment-options">
+                    <button class="btn btn-primary btn-large" onclick="proceedToPayment('${productName}')">
+                        💳 Jetzt kaufen
+                    </button>
+                    <button class="btn btn-outline" onclick="this.closest('.purchase-modal').remove()">
+                        Später
+                    </button>
+                </div>
+                <div class="security-badges">
+                    <span class="badge">🔒 SSL gesichert</span>
+                    <span class="badge">💳 PayPal & Kreditkarte</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-overlay" onclick="this.closest('.purchase-modal').remove()"></div>
+    `;
+    
+    document.body.appendChild(modal);
+    setTimeout(() => modal.classList.add('show'), 100);
+}
+
+function proceedToPayment(productName) {
+    // In a real implementation, this would redirect to a payment processor
+    showNotification(`Weiterleitung zu sicherer Bezahlung für "${productName}"...`, 'info');
+    
+    // Simulate redirect delay
+    setTimeout(() => {
+        // This would be replaced with actual payment URL
+        console.log('Redirecting to payment processor for:', productName);
+        
+        // Track conversion
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'begin_checkout', {
+                'event_category': 'E-Commerce',
+                'event_label': productName
+            });
+        }
+    }, 1500);
+}
+
+function initMembershipTiers() {
+    const tierButtons = document.querySelectorAll('.tier-card .btn');
+    
+    tierButtons.forEach(button => {
+        button.addEventListener('click', handleMembershipSelection);
+    });
+}
+
+function handleMembershipSelection(event) {
+    event.preventDefault();
+    
+    const button = event.target;
+    const tier = button.closest('.tier-card');
+    const tierName = tier.querySelector('h3').textContent;
+    const price = tier.querySelector('.price').textContent;
+    
+    showMembershipModal(tierName, price);
+}
+
+function showMembershipModal(tierName, price) {
+    const modal = document.createElement('div');
+    modal.className = 'membership-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>✨ ${tierName} Mitgliedschaft</h3>
+                <button class="modal-close" onclick="this.closest('.membership-modal').remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="membership-benefits">
+                    <h4>Deine Vorteile:</h4>
+                    <ul>
+                        <li>🌿 Sofortiger Zugang zu allen Inhalten</li>
+                        <li>📱 Mobile App inklusive</li>
+                        <li>💬 Premium Community</li>
+                        <li>🎯 Persönliche Betreuung</li>
+                        <li>📚 Alle E-Books inklusive</li>
+                        <li>🚀 Monatlich neue Inhalte</li>
+                    </ul>
+                </div>
+                <div class="trial-offer">
+                    <div class="trial-badge">🎁 Sonderangebot</div>
+                    <h4>7 Tage kostenlos testen</h4>
+                    <p>Danach ${price}/Monat - jederzeit kündbar</p>
+                </div>
+                <div class="membership-actions">
+                    <button class="btn btn-primary btn-large" onclick="startFreeTrial('${tierName}')">
+                        🚀 Kostenlos starten
+                    </button>
+                    <button class="btn btn-outline" onclick="this.closest('.membership-modal').remove()">
+                        Später entscheiden
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-overlay" onclick="this.closest('.membership-modal').remove()"></div>
+    `;
+    
+    document.body.appendChild(modal);
+    setTimeout(() => modal.classList.add('show'), 100);
+}
+
+function startFreeTrial(tierName) {
+    showNotification(`🎉 Perfekt! Deine ${tierName} Mitgliedschaft startet in wenigen Minuten.`, 'success');
+    document.querySelector('.membership-modal').remove();
+    
+    // Track trial start
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'trial_start', {
+            'event_category': 'Membership',
+            'event_label': tierName
+        });
+    }
+}
+
+function initVideoTestimonials() {
+    const videoElements = document.querySelectorAll('.video-testimonial');
+    
+    videoElements.forEach(video => {
+        video.addEventListener('click', playVideoTestimonial);
+    });
+}
+
+function playVideoTestimonial(event) {
+    const videoContainer = event.currentTarget;
+    const title = videoContainer.querySelector('h4').textContent;
+    
+    // Create video modal
+    const modal = document.createElement('div');
+    modal.className = 'video-modal';
+    modal.innerHTML = `
+        <div class="modal-content video-content">
+            <div class="modal-header">
+                <h3>${title}</h3>
+                <button class="modal-close" onclick="this.closest('.video-modal').remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="video-wrapper">
+                <div class="video-placeholder">
+                    <i class="fas fa-play"></i>
+                    <p>Video wird geladen...</p>
+                    <small>In der echten Version würde hier das Testimonial-Video abgespielt.</small>
+                </div>
+            </div>
+        </div>
+        <div class="modal-overlay" onclick="this.closest('.video-modal').remove()"></div>
+    `;
+    
+    document.body.appendChild(modal);
+    setTimeout(() => modal.classList.add('show'), 100);
+}
+
+function initBARFCalculator() {
+    // Add BARF calculator functionality
+    const calculatorBtn = document.createElement('button');
+    calculatorBtn.className = 'floating-calculator';
+    calculatorBtn.innerHTML = '🐱 BARF Rechner';
+    calculatorBtn.onclick = showBARFCalculator;
+    
+    // Only show on BARF section
+    const barfSection = document.querySelector('#barf');
+    if (barfSection) {
+        barfSection.appendChild(calculatorBtn);
+    }
+}
+
+function showBARFCalculator() {
+    const modal = document.createElement('div');
+    modal.className = 'barf-calculator-modal';
+    modal.innerHTML = `
+        <div class="modal-content calculator-content">
+            <div class="modal-header">
+                <h3>🐱 BARF Rechner für Katzen</h3>
+                <button class="modal-close" onclick="this.closest('.barf-calculator-modal').remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="calculator-body">
+                <div class="calc-input-group">
+                    <label>Gewicht deiner Katze (kg):</label>
+                    <input type="number" id="catWeight" step="0.1" min="1" max="15" placeholder="z.B. 4.5">
+                </div>
+                <div class="calc-input-group">
+                    <label>Aktivitätslevel:</label>
+                    <select id="activityLevel">
+                        <option value="low">Niedrig (Wohnungskatze)</option>
+                        <option value="medium" selected>Mittel (Normal aktiv)</option>
+                        <option value="high">Hoch (Sehr aktiv/Freigänger)</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="calculateBARF()">🧮 Berechnen</button>
+                <div id="barfResult" class="calc-result"></div>
+            </div>
+        </div>
+        <div class="modal-overlay" onclick="this.closest('.barf-calculator-modal').remove()"></div>
+    `;
+    
+    document.body.appendChild(modal);
+    setTimeout(() => modal.classList.add('show'), 100);
+}
+
+function calculateBARF() {
+    const weight = parseFloat(document.getElementById('catWeight').value);
+    const activity = document.getElementById('activityLevel').value;
+    const resultDiv = document.getElementById('barfResult');
+    
+    if (!weight || weight < 1 || weight > 15) {
+        resultDiv.innerHTML = '<p class="error">Bitte geben Sie ein gültiges Gewicht zwischen 1-15 kg ein.</p>';
+        return;
+    }
+    
+    // BARF calculation based on weight and activity
+    let dailyAmount;
+    switch(activity) {
+        case 'low': dailyAmount = weight * 0.02; break;
+        case 'medium': dailyAmount = weight * 0.03; break;
+        case 'high': dailyAmount = weight * 0.04; break;
+        default: dailyAmount = weight * 0.03;
+    }
+    
+    const meat = dailyAmount * 0.8;
+    const bones = dailyAmount * 0.1;
+    const liver = dailyAmount * 0.05;
+    const organs = dailyAmount * 0.05;
+    
+    resultDiv.innerHTML = `
+        <div class="calc-success">
+            <h4>🎯 Tägliche BARF-Ration für deine Katze:</h4>
+            <div class="barf-breakdown">
+                <div class="barf-item">
+                    <span class="amount">${(meat * 1000).toFixed(0)}g</span>
+                    <span class="type">Muskelfleisch (80%)</span>
+                </div>
+                <div class="barf-item">
+                    <span class="amount">${(bones * 1000).toFixed(0)}g</span>
+                    <span class="type">Fleischige Knochen (10%)</span>
+                </div>
+                <div class="barf-item">
+                    <span class="amount">${(liver * 1000).toFixed(0)}g</span>
+                    <span class="type">Leber (5%)</span>
+                </div>
+                <div class="barf-item">
+                    <span class="amount">${(organs * 1000).toFixed(0)}g</span>
+                    <span class="type">Andere Organe (5%)</span>
+                </div>
+            </div>
+            <div class="calc-note">
+                <p><strong>Gesamtmenge:</strong> ${(dailyAmount * 1000).toFixed(0)}g pro Tag</p>
+                <p><em>💡 Tipp: Teile die Menge auf 2-3 Mahlzeiten auf und führe Supplements hinzu.</em></p>
+            </div>
+        </div>
+    `;
+}
+
+function initLoginModal() {
+    const loginBtn = document.getElementById('loginBtn');
+    if (loginBtn) {
+        loginBtn.addEventListener('click', showLoginModal);
+    }
+}
+
+function showLoginModal(event) {
+    event.preventDefault();
+    
+    const modal = document.createElement('div');
+    modal.className = 'login-modal';
+    modal.innerHTML = `
+        <div class="modal-content login-content">
+            <div class="modal-header">
+                <h3>🌿 Soulsgold Login</h3>
+                <button class="modal-close" onclick="this.closest('.login-modal').remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="login-body">
+                <form class="login-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>E-Mail:</label>
+                        <input type="email" required placeholder="deine@email.de">
+                    </div>
+                    <div class="form-group">
+                        <label>Passwort:</label>
+                        <input type="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">🔑 Einloggen</button>
+                </form>
+                <div class="login-divider">oder</div>
+                <button class="btn btn-outline btn-large" onclick="showSignupForm()">✨ Kostenloses Konto erstellen</button>
+                <div class="login-benefits">
+                    <h4>Deine Vorteile als Mitglied:</h4>
+                    <ul>
+                        <li>🎁 Kostenlose Rezeptsammlung</li>
+                        <li>📅 Persönlicher Heilungsplaner</li>
+                        <li>💬 Zugang zur Community</li>
+                        <li>📚 Exklusive Artikel & Tipps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="modal-overlay" onclick="this.closest('.login-modal').remove()"></div>
+    `;
+    
+    document.body.appendChild(modal);
+    setTimeout(() => modal.classList.add('show'), 100);
+}
+
+function handleLogin(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const email = form.querySelector('input[type="email"]').value;
+    const button = form.querySelector('button');
+    
+    button.textContent = 'Einloggen...';
+    button.disabled = true;
+    
+    // Simulate login
+    setTimeout(() => {
+        showNotification('🎉 Willkommen zurück! Du wirst zur Mitgliederbereich weitergeleitet.', 'success');
+        document.querySelector('.login-modal').remove();
+        
+        // Update nav button
+        const loginBtn = document.getElementById('loginBtn');
+        loginBtn.textContent = 'Mein Konto';
+        loginBtn.onclick = () => showNotification('Mitgliederbereich wird geladen...', 'info');
+    }, 1500);
+}
+
+function showSignupForm() {
+    document.querySelector('.login-modal').remove();
+    showNotification('Registrierung wird vorbereitet... 🌱', 'info');
+}
+
+function initPremiumFeatures() {
+    // Add premium animations and effects
+    addFloatingElements();
+    initParticleEffect();
+    initProgressBars();
+}
+
+function addFloatingElements() {
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        // Add floating healing symbols
+        const symbols = ['🌿', '✨', '🌟', '🕊️', '💎'];
+        
+        symbols.forEach((symbol, index) => {
+            const element = document.createElement('div');
+            element.className = 'floating-symbol';
+            element.textContent = symbol;
+            element.style.cssText = `
+                position: absolute;
+                font-size: 2rem;
+                opacity: 0.6;
+                animation: float ${3 + index}s ease-in-out infinite alternate;
+                left: ${20 + index * 15}%;
+                top: ${30 + index * 10}%;
+                z-index: 0;
+                pointer-events: none;
+            `;
+            hero.appendChild(element);
+        });
+    }
+}
+
+function initParticleEffect() {
+    // Simple particle effect for premium sections
+    const premiumSections = document.querySelectorAll('.membership, .digital-products');
+    
+    premiumSections.forEach(section => {
+        section.addEventListener('mouseenter', createParticles);
+    });
+}
+
+function createParticles(event) {
+    const section = event.currentTarget;
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.cssText = `
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--secondary-color);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: particle-float 2s ease-out forwards;
+        left: ${event.clientX}px;
+        top: ${event.clientY}px;
+    `;
+    
+    document.body.appendChild(particle);
+    
+    setTimeout(() => particle.remove(), 2000);
+}
+
+function initProgressBars() {
+    // Add progress bars to service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    serviceCards.forEach(card => {
+        const progressBar = document.createElement('div');
+        progressBar.className = 'service-progress';
+        progressBar.innerHTML = '<div class="progress-fill"></div>';
+        
+        card.appendChild(progressBar);
+        
+        // Animate on hover
+        card.addEventListener('mouseenter', () => {
+            const fill = progressBar.querySelector('.progress-fill');
+            fill.style.width = '100%';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            const fill = progressBar.querySelector('.progress-fill');
+            fill.style.width = '0%';
+        });
+    });
+}
+
+/* =====================================
    Browser Compatibility Checks
    ===================================== */
 function checkBrowserSupport() {
@@ -589,447 +1128,234 @@ function initScrollBasedAnimations() {
     }, 100));
 }
 
-/* =====================================
-   Spiritual Features
-   ===================================== */
-function initSpiritualFeatures() {
-    // Angel card functionality
-    const drawAngelCardBtn = document.getElementById('drawAngelCard');
-    const angelCardDisplay = document.getElementById('dailyAngelCard');
-    
-    if (drawAngelCardBtn && angelCardDisplay) {
-        const angelCards = [
-            {
-                symbol: '✨',
-                message: 'Vertraue dem Prozess deiner Heilung. Die Engel stehen dir zur Seite.',
-                angel: 'Erzengel Raphael',
-                color: 'linear-gradient(135deg, #c8b5d6 0%, #f7f4f0 100%)'
-            },
-            {
-                symbol: '🕊️',
-                message: 'Friede und Liebe umgeben dich. Alles ist gut so wie es ist.',
-                angel: 'Erzengel Michael',
-                color: 'linear-gradient(135deg, #9caf88 0%, #f7f4f0 100%)'
-            },
-            {
-                symbol: '💫',
-                message: 'Deine innere Stimme führt dich auf den richtigen Weg. Vertraue darauf.',
-                angel: 'Erzengel Gabriel',
-                color: 'linear-gradient(135deg, #d4a574 0%, #f7f4f0 100%)'
-            },
-            {
-                symbol: '🌟',
-                message: 'Du bist ein Licht in dieser Welt. Deine Heilung beginnt jetzt.',
-                angel: 'Erzengel Uriel',
-                color: 'linear-gradient(135deg, #d4af37 0%, #f7f4f0 100%)'
-            },
-            {
-                symbol: '🌸',
-                message: 'Die Engel senden dir bedingungslose Liebe und Mitgefühl.',
-                angel: 'Erzengel Chamuel',
-                color: 'linear-gradient(135deg, #d4a574 0%, #c8b5d6 100%)'
-            }
-        ];
-        
-        drawAngelCardBtn.addEventListener('click', function() {
-            const randomCard = angelCards[Math.floor(Math.random() * angelCards.length)];
-            
-            // Add animation
-            angelCardDisplay.style.opacity = '0';
-            angelCardDisplay.style.transform = 'scale(0.9)';
-            
-            setTimeout(() => {
-                angelCardDisplay.innerHTML = `
-                    <div class="angel-card-front" style="background: ${randomCard.color}">
-                        <h4>Deine heutige Engel-Botschaft:</h4>
-                        <div class="angel-symbol">${randomCard.symbol}</div>
-                        <p class="angel-message">"${randomCard.message}"</p>
-                        <p class="angel-name">- ${randomCard.angel} -</p>
-                    </div>
-                `;
-                
-                angelCardDisplay.style.opacity = '1';
-                angelCardDisplay.style.transform = 'scale(1)';
-            }, 300);
-        });
-    }
-    
-    // Moon phase functionality (simplified)
-    updateMoonPhase();
-    
-    // Meditation downloads
-    const downloadBtns = document.querySelectorAll('.download-btn');
-    downloadBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const downloadType = this.getAttribute('data-download');
-            
-            // Simulate download
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wird heruntergeladen...';
-            this.style.pointerEvents = 'none';
-            
-            setTimeout(() => {
-                this.innerHTML = '<i class="fas fa-check"></i> Download abgeschlossen!';
-                this.style.background = 'var(--success)';
-                
-                setTimeout(() => {
-                    const originalText = this.textContent;
-                    this.innerHTML = `
-<i class="fas fa-download"></i> ${this.textContent.split(' ')[0]}
-                    `;
-                    this.style.pointerEvents = 'auto';
-                    this.style.background = 'var(--primary-light)';
-                }, 2000);
-            }, 1500);
-        });
-    });
-    
-    // Community links
-    const communityLinks = document.querySelectorAll('.community-link');
-    communityLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Simulate joining community
-            const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wird geladen...';
-            this.style.pointerEvents = 'none';
-            
-            setTimeout(() => {
-                this.innerHTML = '<i class="fas fa-check"></i> Beigetreten!';
-                this.style.background = 'var(--success)';
-                this.style.color = 'var(--white)';
-                
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                    this.style.pointerEvents = 'auto';
-                    this.style.background = '';
-                    this.style.color = '';
-                }, 2000);
-            }, 1500);
-        });
-    });
-}
-
-function updateMoonPhase() {
-    // Simplified moon phase calculation based on current date
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = now.getMonth() + 1;
-    const day = now.getDate();
-    
-    // Calculate moon phase (simplified algorithm)
-    const totalDays = Math.floor((now - new Date(year, 0, 6)) / (1000 * 60 * 60 * 24));
-    const lunarCycle = 29.53;
-    const moonAge = (totalDays % lunarCycle);
-    const moonPhase = moonAge / lunarCycle;
-    
-    const moonPhases = [
-        { symbol: '🌑', name: 'Neumond', meaning: 'Zeit für neue Beginn und Absichten setzen' },
-        { symbol: '🌒', name: 'zunehmender Mond', meaning: 'Zeit für Wachstum und Entwicklung' },
-        { symbol: '🌓', name: 'erstes Viertel', meaning: 'Zeit für Entscheidungen und Durchbruch' },
-        { symbol: '🌔', name: 'zunehmender Mond', meaning: 'Zeit für Vollendung und Integration' },
-        { symbol: '🌕', name: 'Vollmond', meaning: 'Zeit für Fülle und Ernte' },
-        { symbol: '🌖', name: 'abnehmender Mond', meaning: 'Zeit für Loslassen und Reinigung' },
-        { symbol: '🌗', name: 'letztes Viertel', meaning: 'Zeit für Reflexion und Bewertung' },
-        { symbol: '🌘', name: 'abnehmender Mond', meaning: 'Zeit für Vorbereitung auf Neuanfang' }
-    ];
-    
-    const currentPhaseIndex = Math.floor(moonPhase * 8);
-    const currentPhase = moonPhases[currentPhaseIndex] || moonPhases[0];
-    
-    const moonPhaseElement = document.getElementById('currentMoonPhase');
-    if (moonPhaseElement) {
-        moonPhaseElement.innerHTML = `
-            <div class="moon-icon ${currentPhaseIndex === 5 ? 'waning-gibbous' : ''}">${currentPhase.symbol}</div>
-            <div class="moon-info">
-                <strong>${currentPhase.name}</strong>
-                <p>${currentPhase.meaning}</p>
-            </div>
-        `;
-    }
-}
-
-/* =====================================
-   Utility Functions
-   ===================================== */
-function throttle(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-
 // Initialize browser compatibility checks
 checkBrowserSupport();
 
-/* =====================================
-   Enhanced Contact Form & Booking Modal
-   ===================================== */
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    const stickyBookingBtn = document.getElementById('stickyBookingBtn');
-    const bookingModal = document.getElementById('bookingModal');
-    const closeModal = document.querySelector('.close');
-
-    // Initialize booking modal
-    if (stickyBookingBtn && bookingModal) {
-        stickyBookingBtn.addEventListener('click', function() {
-            bookingModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
-
-        // Close modal functionality
-        if (closeModal) {
-            closeModal.addEventListener('click', function() {
-                bookingModal.style.display = 'none';
-                document.body.style.overflow = '';
-            });
-        }
-
-        // Close modal when clicking outside
-        window.addEventListener('click', function(event) {
-            if (event.target === bookingModal) {
-                bookingModal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Handle booking button clicks
-        const bookingBtns = document.querySelectorAll('.booking-btn');
-        bookingBtns.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#contact') {
-                    e.preventDefault();
-                    bookingModal.style.display = 'none';
-                    document.body.style.overflow = '';
-                    
-                    // Smooth scroll to contact form
-                    const contactSection = document.getElementById('contact');
-                    if (contactSection) {
-                        contactSection.scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        
-                        // Focus on the first form field
-                        setTimeout(() => {
-                            const firstInput = contactForm.querySelector('input[type="text"]');
-                            if (firstInput) firstInput.focus();
-                        }, 1000);
-                    }
-                }
-            });
-        });
-    }
-
-    // Enhanced form validation
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (validateContactForm()) {
-                // Simulate form submission
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                
-                // Show loading state
-                submitBtn.innerHTML = 'Wird gesendet... <i class="fas fa-spinner fa-spin"></i>';
-                submitBtn.disabled = true;
-                
-                // Simulate API call
-                setTimeout(() => {
-                    // Show success message
-                    showFormSuccess('Vielen Dank! Deine Nachricht wurde erfolgreich gesendet. Ich melde mich innerhalb von 24 Stunden bei dir.');
-                    
-                    // Reset form
-                    contactForm.reset();
-                    
-                    // Reset button
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        const successMsg = document.querySelector('.form-success');
-                        if (successMsg) successMsg.classList.remove('show');
-                    }, 5000);
-                    
-                }, 2000);
-            }
-        });
-
-        // Real-time validation
-        const formFields = contactForm.querySelectorAll('input, select, textarea');
-        formFields.forEach(field => {
-            field.addEventListener('blur', function() {
-                validateField(this);
-            });
-            
-            field.addEventListener('input', function() {
-                if (this.classList.contains('error')) {
-                    validateField(this);
-                }
-            });
-        });
-    }
-}
-
-function validateContactForm() {
-    const form = document.getElementById('contactForm');
-    const requiredFields = form.querySelectorAll('[required]');
-    let isValid = true;
-
-    requiredFields.forEach(field => {
-        if (!validateField(field)) {
-            isValid = false;
-        }
-    });
-
-    return isValid;
-}
-
-function validateField(field) {
-    const fieldName = field.name;
-    const value = field.value.trim();
-    let isValid = true;
-    let errorMessage = '';
-
-    // Remove previous error state
-    field.classList.remove('error');
-    const errorElement = field.parentElement.querySelector('.error-message');
-    if (errorElement) {
-        errorElement.classList.remove('show');
-    }
-
-    // Validation rules
-    switch (fieldName) {
-        case 'name':
-            if (value.length < 2) {
-                isValid = false;
-                errorMessage = 'Bitte gib deinen Vornamen ein (min. 2 Zeichen).';
-            }
-            break;
-            
-        case 'email':
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(value)) {
-                isValid = false;
-                errorMessage = 'Bitte gib eine gültige E-Mail-Adresse ein.';
-            }
-            break;
-            
-        case 'interest':
-            if (!value) {
-                isValid = false;
-                errorMessage = 'Bitte wähle ein Interessensgebiet aus.';
-            }
-            break;
-            
-        case 'message':
-            if (value.length < 10) {
-                isValid = false;
-                errorMessage = 'Bitte gib eine Nachricht ein (min. 10 Zeichen).';
-            }
-            break;
-            
-        case 'privacy':
-            if (!field.checked) {
-                isValid = false;
-                errorMessage = 'Die Zustimmung zur Datenschutzerklärung ist erforderlich.';
-            }
-            break;
-    }
-
-    if (!isValid) {
-        field.classList.add('error');
-        if (errorElement) {
-            errorElement.textContent = errorMessage;
-            errorElement.classList.add('show');
-        } else {
-            // Create error element if it doesn't exist
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message show';
-            errorDiv.textContent = errorMessage;
-            field.parentElement.appendChild(errorDiv);
-        }
-    }
-
-    return isValid;
-}
-
-function showFormSuccess(message) {
-    const form = document.getElementById('contactForm');
-    const existingSuccess = form.querySelector('.form-success');
-    
-    if (existingSuccess) {
-        existingSuccess.remove();
+// Add CSS for new features
+const newStyles = document.createElement('style');
+newStyles.textContent = `
+    /* Modal Styles */
+    .purchase-modal, .membership-modal, .video-modal, .barf-calculator-modal, .login-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
     
-    const successDiv = document.createElement('div');
-    successDiv.className = 'form-success show';
-    successDiv.textContent = message;
+    .purchase-modal.show, .membership-modal.show, .video-modal.show, 
+    .barf-calculator-modal.show, .login-modal.show {
+        opacity: 1;
+    }
     
-    form.insertBefore(successDiv, form.firstChild);
-}
-
-// Add form validation styles to head
-const style = document.createElement('style');
-style.textContent = `
-    .form-group {
+    .modal-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+    }
+    
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--white);
+        border-radius: var(--radius-xl);
+        max-width: 90vw;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: var(--shadow-xl);
+    }
+    
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-lg);
+        border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .modal-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--medium-gray);
+        padding: var(--spacing-xs);
+    }
+    
+    .modal-body {
+        padding: var(--spacing-lg);
+    }
+    
+    /* Floating Calculator */
+    .floating-calculator {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        background: var(--secondary-color);
+        color: var(--white);
+        border: none;
+        padding: var(--spacing-md);
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: var(--shadow-lg);
+        z-index: 1000;
+        transition: var(--transition-normal);
+    }
+    
+    .floating-calculator:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-xl);
+    }
+    
+    /* BARF Calculator Styles */
+    .calc-input-group {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .calc-input-group label {
+        display: block;
+        margin-bottom: var(--spacing-xs);
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    
+    .calc-input-group input,
+    .calc-input-group select {
+        width: 100%;
+        padding: var(--spacing-sm);
+        border: 2px solid var(--light-gray);
+        border-radius: var(--radius-md);
+        font-size: 1rem;
+    }
+    
+    .calc-result {
+        margin-top: var(--spacing-lg);
+    }
+    
+    .barf-breakdown {
+        display: grid;
+        gap: var(--spacing-sm);
+        margin: var(--spacing-md) 0;
+    }
+    
+    .barf-item {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--spacing-sm);
+        background: var(--light-gray);
+        border-radius: var(--radius-md);
+    }
+    
+    .barf-item .amount {
+        font-weight: 700;
+        color: var(--secondary-color);
+    }
+    
+    /* Floating Symbols Animation */
+    @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        100% { transform: translateY(-20px) rotate(10deg); }
+    }
+    
+    /* Particle Animation */
+    @keyframes particle-float {
+        0% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translate(0, -100px) scale(0);
+        }
+    }
+    
+    /* Service Progress Bars */
+    .service-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--light-gray);
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--secondary-color), var(--secondary-light));
+        transition: width 0.5s ease;
+    }
+    
+    /* Security Badges */
+    .security-badges {
+        display: flex;
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-md);
+        justify-content: center;
+    }
+    
+    .badge {
+        background: var(--healing-cream);
+        color: var(--primary-color);
+        padding: var(--spacing-xs);
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    /* Login Benefits */
+    .login-benefits {
+        margin-top: var(--spacing-lg);
+        padding: var(--spacing-md);
+        background: var(--light-gray);
+        border-radius: var(--radius-md);
+    }
+    
+    .login-benefits h4 {
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .login-benefits ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .login-benefits li {
+        padding: var(--spacing-xs) 0;
+        color: var(--medium-gray);
+    }
+    
+    .login-divider {
+        text-align: center;
+        margin: var(--spacing-md) 0;
+        color: var(--medium-gray);
         position: relative;
     }
     
-    .form-group .error-message {
+    .login-divider::before,
+    .login-divider::after {
+        content: '';
         position: absolute;
-        left: 0;
-        top: 100%;
-        font-size: 12px;
-        color: #c85a54;
-        margin-top: 2px;
+        top: 50%;
+        width: 40%;
+        height: 1px;
+        background: var(--light-gray);
     }
-`;
-document.head.appendChild(style);
-
-/* =====================================
-   Sticky Booking Button
-   ===================================== */
-function initStickyBooking() {
-    const stickyBtn = document.getElementById('stickyBookingBtn');
     
-    if (stickyBtn) {
-        // Show button after user scrolls down
-        window.addEventListener('scroll', throttle(function() {
-            const scrollPosition = window.pageYOffset;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            
-            // Show button when user has scrolled past hero section
-            if (scrollPosition > windowHeight * 0.5) {
-                stickyBtn.classList.add('visible');
-            } else {
-                stickyBtn.classList.remove('visible');
-            }
-            
-            // Hide button when user is near the contact form
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                const contactTop = contactSection.offsetTop;
-                const contactHeight = contactSection.offsetHeight;
-                
-                if (scrollPosition > contactTop - windowHeight && 
-                    scrollPosition < contactTop + contactHeight) {
-                    stickyBtn.classList.add('hidden');
-                } else {
-                    stickyBtn.classList.remove('hidden');
-                }
-            }
-        }, 100));
-    }
-}
+    .login-divider::before { left: 0; }
+    .login-divider::after { right: 0; }
+`;
+document.head.appendChild(newStyles);
