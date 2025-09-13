@@ -1,18 +1,21 @@
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/usr/local/lib/python3.12/http/server.py", line 1314, in <module>
-    test(
-  File "/usr/local/lib/python3.12/http/server.py", line 1261, in test
-    with ServerClass(addr, HandlerClass) as httpd:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/socketserver.py", line 457, in __init__
-    self.server_bind()
-  File "/usr/local/lib/python3.12/http/server.py", line 1308, in server_bind
-    return super().server_bind()
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/http/server.py", line 136, in server_bind
-    socketserver.TCPServer.server_bind(self)
-  File "/usr/local/lib/python3.12/socketserver.py", line 478, in server_bind
-    self.socket.bind(self.server_address)
-OSError: [Errno 98] Address already in use
+10.12.239.112 - - [13/Sep/2025 19:59:40] "HEAD / HTTP/1.1" 200 -
+10.12.239.112 - - [13/Sep/2025 19:59:41] "GET / HTTP/1.1" 200 -
+10.12.239.112 - - [13/Sep/2025 19:59:41] "GET /css/style.css HTTP/1.1" 200 -
+10.12.239.112 - - [13/Sep/2025 19:59:41] code 404, message File not found
+10.12.239.112 - - [13/Sep/2025 19:59:41] "GET /css/responsive.css HTTP/1.1" 404 -
+10.12.239.112 - - [13/Sep/2025 19:59:41] code 404, message File not found
+10.12.239.112 - - [13/Sep/2025 19:59:41] "HEAD /https:/3000-ipdnxqid04d9jzhdbrhyh-6532622b.e2b.dev/ HTTP/1.1" 404 -
+10.12.239.112 - - [13/Sep/2025 19:59:42] "GET /js/main.js HTTP/1.1" 200 -
+10.12.239.112 - - [13/Sep/2025 20:00:53] "HEAD / HTTP/1.1" 200 -
+10.12.239.112 - - [13/Sep/2025 20:00:53] "GET / HTTP/1.1" 304 -
+10.12.239.112 - - [13/Sep/2025 20:00:54] "GET /css/style.css HTTP/1.1" 304 -
+10.12.239.112 - - [13/Sep/2025 20:00:54] code 404, message File not found
+10.12.239.112 - - [13/Sep/2025 20:00:54] "GET /css/responsive.css HTTP/1.1" 404 -
+10.12.239.112 - - [13/Sep/2025 20:00:54] "GET /js/main.js HTTP/1.1" 304 -
+10.12.239.112 - - [13/Sep/2025 20:01:26] "HEAD / HTTP/1.1" 200 -
+10.12.239.112 - - [13/Sep/2025 20:01:26] "GET / HTTP/1.1" 304 -
+10.12.239.112 - - [13/Sep/2025 20:01:27] code 404, message File not found
+10.12.239.112 - - [13/Sep/2025 20:01:27] "GET /css/responsive.css HTTP/1.1" 404 -
+10.12.239.112 - - [13/Sep/2025 20:01:27] "GET /js/main.js HTTP/1.1" 304 -
+10.12.239.112 - - [13/Sep/2025 20:01:28] code 404, message File not found
+10.12.239.112 - - [13/Sep/2025 20:01:28] "GET /robots.txt HTTP/1.1" 404 -
