@@ -3,164 +3,456 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soulsgold - Christina Bradtke | Premium Medical Medium Coaching & Ganzheitliche Heilung</title>
-    <meta name="description" content="Professionelle Medical Medium Beratung mit Christina Bradtke. Traumaheilung, BARF für Katzen, Spirituelle Heilung, Online-Kurse & Premium-Mitgliedschaft. Ihre Expertin für ganzheitliche Transformation.">
-    <meta name="keywords" content="Medical Medium, Anthony William, Traumaheilung, PTBS, BARF Katzen, Spirituelle Heilung, Online Coaching, Detox, Schwermetalle">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Soulsgold - Premium Medical Medium Coaching">
-    <meta property="og:description" content="Professionelle Begleitung auf deinem Heilungsweg mit Medical Medium Prinzipien">
-    <meta property="og:image" content="https://page.gensparksite.com/v1/base64_upload/72c1bd9c91e8e9d44a6013310d955da9">
-    <meta property="og:type" content="website">
+    <title>Christina Bradtke - Medical Medium & Katzenliebhaberin</title>
+    <meta name="description" content="Entdecke Christina's Welt: Medical Medium Ernährung, Heilung und ihre Liebe zu Katzen">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&family=Lora:wght@400;500;600&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HealthAndBeautyBusiness",
-      "name": "Soulsgold - Christina Bradtke",
-      "description": "Medical Medium Coaching und ganzheitliche Heilung",
-      "url": "https://soulsgold.de",
-      "logo": "https://page.gensparksite.com/v1/base64_upload/72c1bd9c91e8e9d44a6013310d955da9",
-      "founder": {
-        "@type": "Person",
-        "name": "Christina Bradtke"
-      }
-    }
-    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #3d6b5f;
+            --soft-cream: #f9f6f1;
+            --warm-gold: #d4a574;
+            --sage-green: #9caf88;
+            --dark-text: #2c2c2c;
+            --light-gray: #e8e4df;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-text);
+            background-color: var(--soft-cream);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-green);
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #2d5f4f 100%);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--warm-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(61, 107, 95, 0.9) 0%, rgba(45, 95, 79, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=1600') center/cover;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.95);
+            font-family: 'Lora', serif;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            font-family: 'Lora', serif;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            background: var(--soft-cream);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Medical Medium Section */
+        .medical-medium {
+            background: white;
+        }
+
+        .mm-content {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .mm-principle {
+            background: var(--soft-cream);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-green);
+        }
+
+        .mm-principle h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+
+        .mm-principle p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Cats Section */
+        .cats-section {
+            background: var(--soft-cream);
+        }
+
+        .cats-content {
+            text-align: center;
+        }
+
+        .cats-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .cats-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cat-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .cat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .cat-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .cat-info {
+            padding: 2rem;
+        }
+
+        .cat-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cat-info p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Journey Section */
+        .journey {
+            background: white;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 80px;
+            top: 40px;
+            bottom: -40px;
+            width: 2px;
+            background: var(--light-gray);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-year {
+            flex-shrink: 0;
+            width: 120px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--warm-gold);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .timeline-content {
+            background: var(--soft-cream);
+            padding: 2rem;
+            border-radius: 15px;
+            flex-grow: 1;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-green);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .timeline-item::before {
+                display: none;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Sticky Booking Button -->
-    <button class="sticky-booking-btn" id="stickyBookingBtn">
-        <i class="fas fa-calendar-plus"></i>
-        <span class="btn-text">Kostenloses Erstgespräch</span>
-    </button>
-
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <img src="https://page.gensparksite.com/v1/base64_upload/72c1bd9c91e8e9d44a6013310d955da9" alt="Soulsgold Logo" class="nav-logo-img">
-                <div class="nav-logo-text">
-                    <h2>Soulsgold</h2>
-                    <span>Christina Bradtke</span>
-                </div>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
+            <div class="nav-logo">Christina Bradtke</div>
+            <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Start</a></li>
                 <li><a href="#about" class="nav-link">Über mich</a></li>
-                <li><a href="#approach" class="nav-link">Mein Ansatz</a></li>
-                <li><a href="#services" class="nav-link">Angebote</a></li>
-                <li class="nav-dropdown">
-                    <a href="#knowledge" class="nav-link dropdown-trigger">Wissen <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#knowledge">Medical Medium</a></li>
-                        <li><a href="#recipes">Heilende Rezepte</a></li>
-                        <li><a href="#barf">BARF für Katzen</a></li>
-                        <li><a href="#blog">Blog & Artikel</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown">
-                    <a href="#shop" class="nav-link dropdown-trigger">Shop <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#courses">Online-Kurse</a></li>
-                        <li><a href="#membership">Mitgliedschaft</a></li>
-                        <li><a href="#ebooks">E-Books & Guides</a></li>
-                        <li><a href="#meditation">Meditationen</a></li>
-                    </ul>
-                </li>
-                <li><a href="#contact" class="nav-link">Kontakt</a></li>
-                <li><a href="#" class="nav-link nav-cta" id="loginBtn">Login</a></li>
+                <li><a href="#medical-medium" class="nav-link">Medical Medium</a></li>
+                <li><a href="#cats" class="nav-link">Meine Katzen</a></li>
+                <li><a href="#journey" class="nav-link">Meine Reise</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-greeting">Willkommen bei Soulsgold</div>
-                <h1>Heilung für <span class="highlight">Körper, Seele & Geist</span></h1>
-                <p class="hero-subtitle">Als Ernährungsberaterin & Health Coach nach Medical Medium begleite ich Menschen mit Trauma, PTBS und chronischen Beschwerden auf ihrem Weg zu wahrer Heilung.</p>
-                <div class="hero-highlights">
-                    <div class="hero-highlight">
-                        <i class="fas fa-heart"></i>
-                        <span>Traumaheilung durch Ernährung</span>
-                    </div>
-                    <div class="hero-highlight">
-                        <i class="fas fa-leaf"></i>
-                        <span>Medical Medium Ansatz</span>
-                    </div>
-                    <div class="hero-highlight">
-                        <i class="fas fa-hands-helping"></i>
-                        <span>Spirituelle Begleitung</span>
-                    </div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary btn-glow">Kostenloses Erstgespräch 🌿</a>
-                    <a href="#about" class="btn btn-secondary">Meine Geschichte</a>
-                    <a href="#membership" class="btn btn-outline btn-premium">✨ Premium Mitgliedschaft</a>
-                </div>
-                
-                <!-- Newsletter Signup -->
-                <div class="hero-newsletter">
-                    <div class="newsletter-compact">
-                        <h4>🌱 Kostenlose Heilungsimpulse</h4>
-                        <p>Erhalte wöchentlich Medical Medium Tipps & exklusive Rezepte</p>
-                        <form class="newsletter-form" id="heroNewsletterForm">
-                            <input type="email" placeholder="Deine E-Mail Adresse" required>
-                            <button type="submit" class="btn btn-newsletter">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </form>
-                        <small>✨ Über 2.500 Abonnenten vertrauen bereits auf meine Tipps</small>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-visual">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/9a66d5a1ac415f51f5963850c45f0542" alt="Spirituelle Heilung in der Natur" class="hero-main-image">
-                    <div class="hero-overlay-card">
-                        <div class="hero-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">500+</span>
-                                <span class="stat-label">Geheilte Klienten</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">8+</span>
-                                <span class="stat-label">Jahre Erfahrung</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">100%</span>
-                                <span class="stat-label">Herzensarbeit</span>
-                            </div>
-                        </div>
-                        <div class="hero-trust-badges">
-                            <span class="trust-badge">✨ IHC Zertifiziert</span>
-                            <span class="trust-badge">🌿 Medical Medium</span>
-                            <span class="trust-badge">🙏 Rise Up Trained</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hero-scroll">
-            <i class="fas fa-chevron-down"></i>
+            <h1>Christina Bradtke</h1>
+            <p class="hero-subtitle">Medical Medium Ernährung & Katzenliebe</p>
+            <p class="hero-description">
+                Willkommen in meiner Welt! Ich lebe und atme Medical Medium Prinzipien nach Anthony William 
+                und teile mein Leben mit wundervollen Katzen. Diese Seite ist ein Einblick in meine Leidenschaft 
+                für ganzheitliche Heilung und die bedingungslose Liebe zu meinen Samtpfoten.
+            </p>
         </div>
     </section>
 
@@ -168,1273 +460,258 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2>Meine Geschichte</h2>
-                <p>Von der eigenen Heilung zur Berufung</p>
+                <h2>Über mich</h2>
+                <p>Meine Geschichte von Heilung und Transformation</p>
             </div>
             <div class="about-content">
-                <div class="about-text">
-                    <h3>Ein Weg durch Dunkel ins Licht</h3>
-                    <p>Mein Name ist Christina Bradtke und ich kenne den Schmerz von PTBS, Trauma und chronischen Beschwerden aus eigener Erfahrung. Nach einem körperlichen Zusammenbruch 2014 durch langanhaltende Überforderung entdeckte ich 2016 Anthony William und den Medical Medium Ansatz – und das veränderte alles.</p>
-                    
-                    <div class="about-timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-year">2014</div>
-                            <div class="timeline-content">
-                                <h4>Der Wendepunkt</h4>
-                                <p>Körperlicher Zusammenbruch durch langanhaltende Überforderung. Betroffen von PTBS (Entwicklungs- und Schocktrauma).</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-year">2016</div>
-                            <div class="timeline-content">
-                                <h4>Hoffnung entdeckt</h4>
-                                <p>Entdeckung von Anthony William (Medical Medium). Beginn meiner eigenen tiefgreifenden Heilungsreise.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-year">Heute</div>
-                            <div class="timeline-content">
-                                <h4>Berufung gefunden</h4>
-                                <p>Begleite Menschen auf ihrem Heilungsweg durch Ernährung, Spiritualität und emotionale Arbeit.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="about-credentials">
-                        <h4>Meine Ausbildungen & Erfahrungen</h4>
-                        <div class="credentials-grid">
-                            <div class="credential-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Rise Up Ausbildung von Muneeza Ahmed</span>
-                            </div>
-                            <div class="credential-item">
-                                <i class="fas fa-certificate"></i>
-                                <span>Mitglied der IHC (International Health Coach)</span>
-                            </div>
-                            <div class="credential-item">
-                                <i class="fas fa-heart"></i>
-                                <span>Somatic Experiencing®</span>
-                            </div>
-                            <div class="credential-item">
-                                <i class="fas fa-music"></i>
-                                <span>Musiktherapie</span>
-                            </div>
-                            <div class="credential-item">
-                                <i class="fas fa-hands-helping"></i>
-                                <span>Schamanisches Heilen</span>
-                            </div>
-                            <div class="credential-item">
-                                <i class="fas fa-seedling"></i>
-                                <span>Langjährige Klientenerfahrung in verschiedenen Therapieformen</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="about-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-phoenix-rising"></i>
-                        <p>Christina Bradtke<br><span>Ernährungsberaterin & Health Coach</span></p>
-                        <div class="about-quote">"Heilung beginnt dort, wo wir uns selbst mit Mitgefühl begegnen."</div>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800" alt="Christina Bradtke">
+                </div>
+                <div class="about-text">
+                    <h3>Meine Reise zur Heilung</h3>
+                    <p>
+                        Mein Name ist Christina, und ich habe selbst erfahren, wie tiefgreifend 
+                        Medical Medium Ernährung unser Leben verändern kann. Nach einem körperlichen 
+                        Zusammenbruch 2014 begann meine Suche nach wahrer Heilung.
+                    </p>
+                    <p>
+                        2016 entdeckte ich Anthony William und seine revolutionären Erkenntnisse über 
+                        die Verbindung zwischen Ernährung, Trauma und Heilung. Seitdem ist Medical Medium 
+                        zu meiner Lebensweise geworden - nicht nur eine Ernährungsform, sondern eine 
+                        ganzheitliche Philosophie des Heilens.
+                    </p>
+                    <p>
+                        Neben meiner Leidenschaft für heilende Ernährung teile ich mein Leben mit 
+                        wundervollen Katzen, die mir täglich Freude, Liebe und Erdung schenken. 
+                        Ihre Gegenwart erinnert mich daran, im Moment zu leben und die einfachen 
+                        Freuden des Lebens zu schätzen.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Approach Section -->
-    <section id="approach" class="approach">
+    <!-- Photo Gallery Section -->
+    <section class="gallery">
         <div class="container">
             <div class="section-header">
-                <h2>Mein Ansatz nach Anthony William</h2>
-                <p>Heilung auf allen Ebenen - Körper, Seele & Geist</p>
+                <h2>Einblicke in mein Leben</h2>
+                <p>Momente der Heilung, Natur und Katzenliebe</p>
             </div>
-            <div class="approach-content">
-                <div class="approach-intro">
-                    <h3>Die Grundprinzipien meiner Arbeit</h3>
-                    <p>Anthony William's revolutionäre Erkenntnisse zeigen uns: <strong>Trauma = Mangel an Glucose im Gehirn</strong>. Adrenalin und Schwermetalle schädigen unser Nervensystem und unsere Seele. Wahre Heilung geschieht durch die Kombination von Ernährung, Spiritualität und emotionaler Arbeit.</p>
-                </div>
-                
-                <div class="key-principles">
-                    <h3>Meine Spezialisierungen</h3>
-                    <div class="principles-grid">
-                        <div class="principle-card">
-                            <i class="fas fa-brain"></i>
-                            <h4>PTBS & Traumaheilung</h4>
-                            <p>Posttraumatische Belastung durch gezielte Ernährung und spirituelle Werkzeuge heilen</p>
-                        </div>
-                        <div class="principle-card">
-                            <i class="fas fa-heart"></i>
-                            <h4>Emotionale Heilung</h4>
-                            <p>Seele und Gehirn müssen gemeinsam geheilt werden für dauerhafte Transformation</p>
-                        </div>
-                        <div class="principle-card">
-                            <i class="fas fa-leaf"></i>
-                            <h4>Schwermetall-Entgiftung</h4>
-                            <p>Sanfte Ausleitung mit dem berühmten Heavy Metal Detox Smoothie (HMDS)</p>
-                        </div>
-                        <div class="principle-card">
-                            <i class="fas fa-balance-scale"></i>
-                            <h4>Nervensystem-Stabilisierung</h4>
-                            <p>Glucose-reiche Ernährung zur Stärkung und Beruhigung des Nervensystems</p>
-                        </div>
-                        <div class="principle-card">
-                            <i class="fas fa-praying-hands"></i>
-                            <h4>Spirituelle Werkzeuge</h4>
-                            <p>Meditationen, Engel-Kommunikation und Spiritual Light of Free Will-Übungen</p>
-                        </div>
-                        <div class="principle-card">
-                            <i class="fas fa-shield-alt"></i>
-                            <h4>Traumaprävention</h4>
-                            <p>Ernährung und Lebensstil zur Stärkung der Resilienz und Selbstheilung</p>
-                        </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800" alt="Frische Früchte und Säfte">
+                    <div class="gallery-caption">
+                        Frische Selleriesäfte und heilende Früchte - meine tägliche Routine
                     </div>
                 </div>
-
-                <div class="healing-approach">
-                    <h3>Die drei Säulen meiner Arbeit</h3>
-                    <div class="pillars-grid">
-                        <div class="pillar-card">
-                            <div class="pillar-icon">
-                                <i class="fas fa-apple-alt"></i>
-                            </div>
-                            <h4>Ernährung nach Medical Medium</h4>
-                            <ul>
-                                <li>Individuelle Ernährungspläne</li>
-                                <li>Glucose-reiche Nahrung fürs Gehirn</li>
-                                <li>Brain Shots & Heilungssäfte</li>
-                                <li>Schwermetall-Detox Protokolle</li>
-                            </ul>
-                        </div>
-                        <div class="pillar-card">
-                            <div class="pillar-icon">
-                                <i class="fas fa-om"></i>
-                            </div>
-                            <h4>Spirituelle Heilung</h4>
-                            <ul>
-                                <li>Soul Light Infusion Meditation</li>
-                                <li>Brain & Moon Meditationen</li>
-                                <li>Spiritual Light of Free Will-Übungen</li>
-                                <li>Engel-Kommunikation</li>
-                            </ul>
-                        </div>
-                        <div class="pillar-card">
-                            <div class="pillar-icon">
-                                <i class="fas fa-hands-helping"></i>
-                            </div>
-                            <h4>Emotionale Begleitung</h4>
-                            <ul>
-                                <li>1:1 Trauma-Coaching</li>
-                                <li>Seelenarbeit & Integration</li>
-                                <li>Begleitung bei Aufarbeitung</li>
-                                <li>Spirituelle Schutzübungen</li>
-                            </ul>
-                        </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1573865526739-10c1dd7aa5f7?w=800" alt="Katze in der Natur">
+                    <div class="gallery-caption">
+                        Meine Katzen genießen die Natur - pure Lebensfreude
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800" alt="Gesunde Bowl">
+                    <div class="gallery-caption">
+                        Bunte, nährstoffreiche Bowls nach Medical Medium
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800" alt="Katze entspannt">
+                    <div class="gallery-caption">
+                        Entspannung und Achtsamkeit von meinen Katzen lernen
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1622495805306-ee8c87b44e86?w=800" alt="Meditation in der Natur">
+                    <div class="gallery-caption">
+                        Meditation und Naturverbindung - Heilung auf allen Ebenen
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?w=800" alt="Katze kuschelt">
+                    <div class="gallery-caption">
+                        Kuschelmomente mit meinen Samtpfoten - pure Liebe
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust & Credentials Section -->
-    <section id="trust" class="trust-section">
+    <!-- Medical Medium Section -->
+    <section id="medical-medium" class="medical-medium">
         <div class="container">
             <div class="section-header">
-                <h2>Vertrauen & Qualifikation</h2>
-                <p>Ihre Gesundheit ist in guten Händen - erfahren, zertifiziert und mit Herzblut</p>
+                <h2>Medical Medium nach Anthony William</h2>
+                <p>Was diese Ernährungsweise für mich bedeutet</p>
             </div>
-            
-            <div class="trust-content">
-                <div class="credentials-grid">
-                    <div class="credential-card">
-                        <div class="credential-badge">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <h3>Medical Medium Coach</h3>
-                        <p>Zertifizierte Ausbildung nach Anthony William mit Fokus auf Trauma-sensible Ernährungsberatung</p>
-                        <a href="#certificates" class="certificate-link" onclick="showCertificate('medical-medium')">Zertifikat anzeigen →</a>
-                    </div>
-                    
-                    <div class="credential-card">
-                        <div class="credential-badge">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <h3>Somatic Experiencing®</h3>
-                        <p>Fortbildung in Traumatherapie zur sicheren Begleitung von Klienten mit PTBS und Trauma</p>
-                        <a href="#certificates" class="certificate-link" onclick="showCertificate('somatic')">Zertifikat anzeigen →</a>
-                    </div>
-                    
-                    <div class="credential-card">
-                        <div class="credential-badge">
-                            <i class="fas fa-hand-holding-heart"></i>
-                        </div>
-                        <h3>IHC Mitglied</h3>
-                        <p>Internationale Heilpraktiker- und Coachvereinigung - für höchste Qualitätsstandards</p>
-                        <a href="#certificates" class="certificate-link" onclick="showCertificate('ihc')">Zertifikat anzeigen →</a>
-                    </div>
+            <div class="mm-content">
+                <div class="mm-principle">
+                    <h3><i class="fas fa-brain"></i> Gehirn & Nervensystem</h3>
+                    <p>
+                        Anthony William zeigt uns: Trauma ist Glucose-Mangel im Gehirn. Durch glucose-reiche 
+                        Früchte, frische Säfte und heilende Lebensmittel nähren wir unser Nervensystem und 
+                        schaffen die Basis für emotionale und körperliche Heilung.
+                    </p>
                 </div>
-                
-                <div class="success-metrics">
-                    <h3>✨ Erfolge in Zahlen</h3>
-                    <div class="testimonials-grid">
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <div class="quote">„Nach Jahren von PTBS und Panikattacken habe ich endlich wieder einen stabilen Schlaf gefunden. Die Kombination aus Medical Medium Ernährung und Christinas Begleitung hat mein Leben verändert.“</div>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">AS</div>
-                                    <div class="author-info">
-                                        <strong>Anna S.</strong>
-                                        <span>3 Monate Begleitung</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <div class="quote">„Die Brain Shots und die spirituellen Übungen haben meine Angstzustände signifikant reduziert. Ich fühle mich wieder sicher und geerdet.“</div>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">MW</div>
-                                    <div class="author-info">
-                                        <strong>Michael W.</strong>
-                                        <span>6 Monate Begleitung</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <div class="quote">„Die schwermetall-Ausleitung war ein Wendepunkt. Meine Konzentration ist zurück und ich habe wieder Energie für mein Leben.“</div>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">LM</div>
-                                    <div class="author-info">
-                                        <strong>Lisa M.</strong>
-                                        <span>4 Monate Begleitung</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="mm-principle">
+                    <h3><i class="fas fa-leaf"></i> Schwermetall-Entgiftung</h3>
+                    <p>
+                        Der berühmte Heavy Metal Detox Smoothie (HMDS) mit wilden Blaubeeren, Spirulina, 
+                        Gerstengras, Koriander und Dulse ist ein Eckpfeiler meiner täglichen Routine. 
+                        Sanft und effektiv werden toxische Metalle aus unserem Körper ausgeleitet.
+                    </p>
                 </div>
-                
-                <div class="before-after-section">
-                    <h3>Before/After Cases</h3>
-                    <div class="cases-grid">
-                        <div class="case-card">
-                            <div class="case-header">
-                                <h4>PTBS-Fall</h4>
-                                <span class="case-duration">3 Monate Begleitung</span>
-                            </div>
-                            <div class="case-content">
-                                <div class="case-before">
-                                    <strong>Vorher:</strong>
-                                    <ul>
-                                        <li>Nächtliche Panikattacken</li>
-                                        <li>Schlafstörungen</li>
-                                        <li>Konzentrationsprobleme</li>
-                                    </ul>
-                                </div>
-                                <div class="case-after">
-                                    <strong>Nachher:</strong>
-                                    <ul>
-                                        <li>Stabiler Schlaf</li>
-                                        <li>Keine Panikattacken mehr</li>
-                                        <li>Konzentration zurück</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="case-card">
-                            <div class="case-header">
-                                <h4>Angststörung</h4>
-                                <span class="case-duration">6 Monate Begleitung</span>
-                            </div>
-                            <div class="case-content">
-                                <div class="case-before">
-                                    <strong>Vorher:</strong>
-                                    <ul>
-                                        <li>Soziale Ängste</li>
-                                        <li>Herzrasen</li>
-                                        <li>Überaktive Gedanken</li>
-                                    </ul>
-                                </div>
-                                <div class="case-after">
-                                    <strong>Nachher:</strong>
-                                    <ul>
-                                        <li>Soziale Sicherheit</li>
-                                        <li>Ruhiges Herz</li>
-                                        <li>Klarheit im Denken</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="mm-principle">
+                    <h3><i class="fas fa-heart"></i> Selleriesaft-Ritual</h3>
+                    <p>
+                        Jeden Morgen beginne ich mit 500ml frischem Selleriesaft auf nüchternen Magen. 
+                        Diese einfache, aber kraftvolle Praxis hat meine Verdauung, Energie und 
+                        allgemeine Gesundheit transformiert. Es ist wie ein tägliches Geschenk an meinen Körper.
+                    </p>
+                </div>
+
+                <div class="mm-principle">
+                    <h3><i class="fas fa-sun"></i> Heilende Lebensmittel</h3>
+                    <p>
+                        Früchte sind keine Feinde, sondern unsere stärksten Verbündeten! Beeren, Äpfel, 
+                        Bananen, Mangos - sie alle liefern die lebendige Glucose, die unser Gehirn zum 
+                        Heilen braucht. Kombiniert mit Blattgrün, Kräutern und Wurzelgemüse erschaffen 
+                        sie eine Symphonie der Heilung.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- Cats Section -->
+    <section id="cats" class="cats-section">
         <div class="container">
             <div class="section-header">
-                <h2>Meine Angebote</h2>
-                <p>Begleitung auf allen Ebenen deines Heilungsweges</p>
+                <h2>Meine Katzen - Meine Lehrer</h2>
+                <p>Die Samtpfoten in meinem Leben</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-heart"></i>
-                    </div>
-                    <h3>1:1 Ernährungsberatung</h3>
-                    <p>Individuelle Beratung nach Medical Medium Prinzipien, speziell für Menschen mit Trauma und PTBS.</p>
-                    <ul class="service-features">
-                        <li>Umfassende Trauma-sensible Anamnese</li>
-                        <li>Glucose-reiche Ernährungspläne</li>
-                        <li>Brain Shots & Heilungssäfte</li>
-                        <li>Schwermetall-Detox Begleitung</li>
-                        <li>Nervensystem-stärkende Supplements</li>
-                    </ul>
-                    <div class="service-price">Ab 150€/Sitzung</div>
-                    <a href="#contact" class="btn btn-outline service-booking-btn" data-service="Ernährungsberatung">Termin buchen</a>
+            <div class="cats-content">
+                <div class="cats-intro">
+                    <p>
+                        Katzen sind wundervolle Wesen, die uns so viel über Achtsamkeit, Präsenz und 
+                        bedingungslose Liebe lehren. Sie erinnern mich täglich daran, im Moment zu leben, 
+                        auf meinen Körper zu hören und die kleinen Freuden des Lebens zu genießen. 
+                        Ihre heilende Präsenz ist unbezahlbar.
+                    </p>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-praying-hands"></i>
+                <div class="cats-gallery">
+                    <div class="cat-card">
+                        <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=800" alt="Katze">
+                        <div class="cat-info">
+                            <h3><i class="fas fa-cat"></i> Luna</h3>
+                            <p>Die weise Seele, die mich durch dunkle Zeiten begleitet hat</p>
+                        </div>
                     </div>
-                    <h3>Spirituelle Begleitung</h3>
-                    <p>Heilende Meditationen und spirituelle Werkzeuge für Seelenheilung und emotionale Stabilisierung.</p>
-                    <ul class="service-features">
-                        <li>Soul Light Infusion Meditation</li>
-                        <li>Brain & Moon Meditationen</li>
-                        <li>Spiritual Light of Free Will-Übungen</li>
-                        <li>Engel-Kommunikation</li>
-                        <li>Schutz- und Heilungsrituale</li>
-                    </ul>
-                    <div class="service-price">Ab 120€/Sitzung</div>
-                    <a href="#contact" class="btn btn-outline service-booking-btn" data-service="Spirituelle Begleitung">Mehr erfahren</a>
-                </div>
 
-                <div class="service-card featured">
-                    <div class="featured-badge">Empfohlen</div>
-                    <div class="service-icon">
-                        <i class="fas fa-seedling"></i>
+                    <div class="cat-card">
+                        <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=800" alt="Katze">
+                        <div class="cat-info">
+                            <h3><i class="fas fa-cat"></i> Milo</h3>
+                            <p>Der verspielte Energieball voller Lebensfreude</p>
+                        </div>
                     </div>
-                    <h3>Ganzheitliches Coaching</h3>
-                    <p>Kombination aus Ernährung, Spiritualität und emotionaler Arbeit für tiefgreifende Heilung.</p>
-                    <ul class="service-features">
-                        <li>Ernährung nach Medical Medium</li>
-                        <li>Spirituelle Heilungswerkzeuge</li>
-                        <li>Trauma-Aufarbeitung</li>
-                        <li>Seelenarbeit & Integration</li>
-                        <li>Langfristige Begleitung</li>
-                    </ul>
-                    <div class="service-price">Paket ab 897€</div>
-                    <a href="#contact" class="btn btn-primary service-booking-btn" data-service="Ganzheitliches Coaching">Jetzt starten</a>
-                </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
+                    <div class="cat-card">
+                        <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=800" alt="Katze">
+                        <div class="cat-info">
+                            <h3><i class="fas fa-cat"></i> Bella</h3>
+                            <p>Die sanfte Heilerin mit dem lautesten Schnurren</p>
+                        </div>
                     </div>
-                    <h3>Online-Kurse & Workshops</h3>
-                    <p>Lerne in der Gemeinschaft die Grundlagen der Medical Medium Ernährung und Traumaheilung.</p>
-                    <ul class="service-features">
-                        <li>Medical Medium Grundlagen</li>
-                        <li>Brain Shots Workshop</li>
-                        <li>HMDS Detox-Kurs</li>
-                        <li>Meditation & Spiritualität</li>
-                        <li>Community-Unterstützung</li>
-                    </ul>
-                    <div class="service-price">Ab 97€/Kurs</div>
-                    <a href="#courses" class="btn btn-outline course-link">Kurse entdecken</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>Vorträge & Seminare</h3>
-                    <p>Teile Wissen über Medical Medium, Traumaheilung und spirituelle Werkzeuge mit einer größeren Gemeinschaft.</p>
-                    <ul class="service-features">
-                        <li>Medical Medium Einführung</li>
-                        <li>Trauma & Ernährung</li>
-                        <li>Spirituelle Heilung</li>
-                        <li>Nervensystem-Stärkung</li>
-                        <li>Maßgeschneiderte Themen</li>
-                    </ul>
-                    <div class="service-price">Auf Anfrage</div>
-                    <a href="#contact" class="btn btn-outline service-booking-btn" data-service="Vorträge & Seminare">Anfrage senden</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Knowledge Section -->
-    <section id="knowledge" class="knowledge">
+    <!-- Journey Section -->
+    <section id="journey" class="journey">
         <div class="container">
             <div class="section-header">
-                <h2>Wissen & Ressourcen</h2>
-                <p>Verstehe die Zusammenhänge von Trauma, Ernährung und Heilung</p>
+                <h2>Meine Reise</h2>
+                <p>Von Dunkelheit ins Licht</p>
             </div>
-            <div class="knowledge-content">
-                <div class="knowledge-intro">
-                    <h3>Die Wissenschaft hinter Medical Medium</h3>
-                    <p>Anthony Williams revolutionäre Erkenntnisse eröffnen uns ein tieferes Verständnis der Zusammenhänge zwischen Trauma, Ernährung und Heilung.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2014</div>
+                    <div class="timeline-content">
+                        <h3>Der Wendepunkt</h3>
+                        <p>
+                            Körperlicher und emotionaler Zusammenbruch durch langanhaltende 
+                            Überforderung. Beginn einer intensiven Suche nach Heilung und 
+                            Antworten auf meine gesundheitlichen Herausforderungen.
+                        </p>
+                    </div>
                 </div>
-                
-                <div class="knowledge-topics">
-                    <div class="topic-card">
-                        <div class="topic-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h4>Trauma & das Gehirn</h4>
-                        <p>Wie Glucose-Mangel im Gehirn zu PTBS führt und warum zuckerreiche Früchte heilen.</p>
-                        <a href="#" class="topic-link">Mehr erfahren →</a>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2016</div>
+                    <div class="timeline-content">
+                        <h3>Medical Medium Entdeckung</h3>
+                        <p>
+                            Entdeckung von Anthony William und seinen revolutionären Erkenntnissen. 
+                            Beginn meiner eigenen tiefgreifenden Heilungsreise mit Selleriesaft, 
+                            Heavy Metal Detox und glucose-reicher Ernährung.
+                        </p>
                     </div>
-                    
-                    <div class="topic-card">
-                        <div class="topic-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h4>Schwermetalle & Emotionen</h4>
-                        <p>Der Zusammenhang zwischen toxischen Metallen und emotionalen Blockaden.</p>
-                        <a href="#" class="topic-link">Mehr erfahren →</a>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
+                        <h3>Vertiefung & Ausbildung</h3>
+                        <p>
+                            Intensive Ausbildung in Medical Medium Prinzipien, Somatic Experiencing® 
+                            und spirituellen Heilmethoden. Erste Katze zieht ein und wird zu meiner 
+                            treuen Begleiterin.
+                        </p>
                     </div>
-                    
-                    <div class="topic-card">
-                        <div class="topic-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h4>Adrenalin & das Nervensystem</h4>
-                        <p>Wie chronischer Stress unser Nervensystem schädigt und was dagegen hilft.</p>
-                        <a href="#" class="topic-link">Mehr erfahren →</a>
-                    </div>
-                    
-                    <div class="topic-card">
-                        <div class="topic-icon">
-                            <i class="fas fa-om"></i>
-                        </div>
-                        <h4>Spirituelle Heilung</h4>
-                        <p>Engel-Kommunikation und spirituelle Übungen für Seelenheilung.</p>
-                        <a href="#" class="topic-link">Mehr erfahren →</a>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">Heute</div>
+                    <div class="timeline-content">
+                        <h3>Leben in Balance</h3>
+                        <p>
+                            Medical Medium ist meine Lebensweise geworden. Ich lebe im Einklang mit 
+                            meinen Katzen, der Natur und den Heilprinzipien, die mein Leben 
+                            transformiert haben. Jeden Tag bin ich dankbar für diese Reise.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Recipes Section -->
-    <section id="recipes" class="recipes">
-        <div class="container">
-            <div class="section-header">
-                <h2>Heilende Rezepte</h2>
-                <p>Kraftvolle Medical Medium Rezepte für Körper und Seele</p>
-            </div>
-            <div class="recipes-content">
-                <div class="recipes-grid">
-                    <div class="recipe-card">
-                        <div class="recipe-image">
-                            <i class="fas fa-glass-whiskey"></i>
-                        </div>
-                        <h4>Heavy Metal Detox Smoothie</h4>
-                        <p>Der berühmte HMDS zur sanften Schwermetall-Ausleitung mit wilden Blaubeeren, Spirulina, Gerstengras, Koriander und Dulse.</p>
-                        <div class="recipe-benefits">
-                            <span class="benefit">🧠 Gehirnreinigung</span>
-                            <span class="benefit">🌿 Entgiftung</span>
-                        </div>
-                        <a href="#" class="recipe-link">Rezept anzeigen</a>
-                    </div>
-                    
-                    <div class="recipe-card">
-                        <div class="recipe-image">
-                            <i class="fas fa-glass-whiskey"></i>
-                        </div>
-                        <h4>Brain Soother Juice</h4>
-                        <p>Beruhigender Saft für gestresste Nerven mit Äpfeln, Birnen, Gurke und frischer Zitronenmelisse.</p>
-                        <div class="recipe-benefits">
-                            <span class="benefit">🙏 Beruhigung</span>
-                            <span class="benefit">💪 Stärkung</span>
-                        </div>
-                        <a href="#" class="recipe-link">Rezept anzeigen</a>
-                    </div>
-                    
-                    <div class="recipe-card">
-                        <div class="recipe-image">
-                            <i class="fas fa-glass-whiskey"></i>
-                        </div>
-                        <h4>Brain Builder Juice</h4>
-                        <p>Nährstoffreicher Saft zur Stärkung der Gehirnfunktion mit Sellerie, Gurke, Spinat und Petersilie.</p>
-                        <div class="recipe-benefits">
-                            <span class="benefit">🧠 Klarheit</span>
-                            <span class="benefit">⚡ Energie</span>
-                        </div>
-                        <a href="#" class="recipe-link">Rezept anzeigen</a>
-                    </div>
-                    
-                    <div class="recipe-card">
-                        <div class="recipe-image">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4>SOS Adrenalin Surge Protector</h4>
-                        <p>Notfall-Drink bei Adrenalinschüben mit Kokoswasser, Zitrone und einer Prise Meersalz.</p>
-                        <div class="recipe-benefits">
-                            <span class="benefit">🌊 Beruhigung</span>
-                            <span class="benefit">⚔️ Schutz</span>
-                        </div>
-                        <a href="#" class="recipe-link">Rezept anzeigen</a>
-                    </div>
-                </div>
-                
-                <div class="supplements-info">
-                    <h3>Empfohlene Nahrungsergänzungen</h3>
-                    <div class="supplements-grid">
-                        <div class="supplement-category">
-                            <h4>🧠 Fürs Gehirn</h4>
-                            <ul>
-                                <li>B12 (Methylcobalamin)</li>
-                                <li>Zitronenmelisse</li>
-                                <li>California Poppy</li>
-                                <li>Magnesium Glycinat</li>
-                            </ul>
-                        </div>
-                        <div class="supplement-category">
-                            <h4>🌿 Für Entgiftung</h4>
-                            <ul>
-                                <li>Spirulina</li>
-                                <li>Gerstengras</li>
-                                <li>Wilde Blaubeeren</li>
-                                <li>Dulse (Rotalge)</li>
-                            </ul>
-                        </div>
-                        <div class="supplement-category">
-                            <h4>⚡ Für Energie</h4>
-                            <ul>
-                                <li>Frischer Selleriesaft</li>
-                                <li>Kokoswasser</li>
-                                <li>Micro-C (Vitamin C)</li>
-                                <li>Zink</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BARF for Cats Section -->
-    <section id="barf" class="barf-cats">
-        <div class="container">
-            <div class="section-header">
-                <h2>BARF-Ernährung für Katzen</h2>
-                <p>Natürliche, artgerechte Ernährung nach Medical Medium Prinzipien</p>
-            </div>
-            
-            <div class="barf-hero">
-                <div class="barf-content">
-                    <div class="barf-text">
-                        <h3>Warum BARF für deine Katze?</h3>
-                        <p>Katzen sind ursprüngliche Fleischfresser. Eine artgerechte BARF-Ernährung (Biologisch Artgerechtes Rohes Futter) entspricht ihrer natürlichen Ernährung und kann zu mehr Vitalität, glänzendem Fell und einem stärkeren Immunsystem führen.</p>
-                        
-                        <div class="barf-benefits">
-                            <h4>😻 Vorteile von BARF:</h4>
-                            <ul class="benefit-list">
-                                <li><i class="fas fa-heart"></i> Gestärkte Gesundheit & Immunsystem</li>
-                                <li><i class="fas fa-sparkles"></i> Glänzendes, gesundes Fell</li>
-                                <li><i class="fas fa-tooth"></i> Bessere Zahngesundheit</li>
-                                <li><i class="fas fa-weight"></i> Optimales Körpergewicht</li>
-                                <li><i class="fas fa-smile"></i> Erhöhte Lebensfreude & Energie</li>
-                                <li><i class="fas fa-leaf"></i> Reduzierte Allergien</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="barf-image">
-                        <img src="https://page.gensparksite.com/v1/base64_upload/d6c2e464d1e48237422e95d5cbfdbd7a" alt="Gesunde BARF ernährte Katzen in der Natur" class="barf-main-img">
-                        <div class="barf-overlay">
-                            <span class="barf-tag">🌿 100% Natürlich</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="barf-guide">
-                <h3>BARF-Grundlagen für Anfänger</h3>
-                <div class="barf-steps">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h4>Die Basis verstehen</h4>
-                        <p>Eine BARF-Mahlzeit besteht aus 80% Fleisch, 10% Knochen, 5% Leber und 5% anderen Organen. Diese Zusammensetzung ahmt die natürliche Beute nach.</p>
-                    </div>
-                    
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h4>Fleischauswahl</h4>
-                        <p>Verwende verschiedene Fleischsorten: Rind, Huhn, Pute, Kaninchen, Wild. Abwechslung sorgt für alle nötigen Nährstoffe.</p>
-                    </div>
-                    
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h4>Langsame Umstellung</h4>
-                        <p>Stelle über 7-14 Tage langsam um. Beginne mit kleinen Mengen und beobachte die Verdauung deiner Katze.</p>
-                    </div>
-                    
-                    <div class="step-card">
-                        <div class="step-number">4</div>
-                        <h4>Supplements</h4>
-                        <p>Ergänze mit Taurin, Omega-3 Fettsäuren und bei Bedarf mit Vitaminen. Lasse dich von einem Tier-Ernährungsberater beraten.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="barf-resources">
-                <div class="resource-grid">
-                    <div class="resource-card premium">
-                        <div class="resource-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <h4>BARF-Guide für Katzen</h4>
-                        <p>Kompletter Leitfaden mit Rezepten, Nährwerttabellen und Umstellungsplan</p>
-                        <div class="price">29,90€</div>
-                        <a href="#" class="btn btn-outline">Jetzt kaufen</a>
-                    </div>
-                    
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <h4>BARF-Futterplan</h4>
-                        <p>Individueller 4-Wochen Futterplan für deine Katze</p>
-                        <div class="price">49,90€</div>
-                        <a href="#" class="btn btn-outline">Erstellen lassen</a>
-                    </div>
-                    
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h4>BARF Online-Kurs</h4>
-                        <p>Video-Kurs mit Live-Zubereitung und Q&A Sessions</p>
-                        <div class="price">97€</div>
-                        <a href="#" class="btn btn-primary">Kurs starten</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="barf-warning">
-                <div class="warning-card">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <div class="warning-content">
-                        <h4>Wichtiger Hinweis</h4>
-                        <p>BARF erfordert Wissen und Sorgfalt. Konsultiere vor der Umstellung einen Tierarzt oder Tier-Ernährungsberater. Besonders bei kranken, trächtigen oder jungen Katzen ist professionelle Beratung essentiell.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Premium Membership Section -->
-    <section id="membership" class="membership">
-        <div class="container">
-            <div class="section-header">
-                <h2>✨ Soulsgold Premium Mitgliedschaft</h2>
-                <p>Dein Zugang zu exklusiven Inhalten, Live-Sessions und persönlicher Betreuung</p>
-            </div>
-            
-            <div class="membership-tiers">
-                <div class="tier-card basic">
-                    <div class="tier-header">
-                        <h3>🌱 Basis</h3>
-                        <div class="tier-price">
-                            <span class="price">19,90€</span>
-                            <span class="period">/Monat</span>
-                        </div>
-                    </div>
-                    <ul class="tier-features">
-                        <li><i class="fas fa-check"></i> Monatlicher Newsletter</li>
-                        <li><i class="fas fa-check"></i> Basis Rezeptsammlung</li>
-                        <li><i class="fas fa-check"></i> Community Zugang</li>
-                        <li><i class="fas fa-check"></i> Ernährungspläne</li>
-                    </ul>
-                    <a href="#" class="btn btn-outline">Wählen</a>
-                </div>
-                
-                <div class="tier-card premium featured">
-                    <div class="tier-badge">Beliebt</div>
-                    <div class="tier-header">
-                        <h3>✨ Premium</h3>
-                        <div class="tier-price">
-                            <span class="price">49,90€</span>
-                            <span class="period">/Monat</span>
-                        </div>
-                    </div>
-                    <ul class="tier-features">
-                        <li><i class="fas fa-check"></i> Alles aus Basis</li>
-                        <li><i class="fas fa-check"></i> Monatliche Live Q&As</li>
-                        <li><i class="fas fa-check"></i> Exklusive Meditationen</li>
-                        <li><i class="fas fa-check"></i> Detox-Programme</li>
-                        <li><i class="fas fa-check"></i> Prioritäts-Support</li>
-                        <li><i class="fas fa-check"></i> Alle E-Books</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Wählen</a>
-                </div>
-                
-                <div class="tier-card elite">
-                    <div class="tier-header">
-                        <h3>👑 Elite</h3>
-                        <div class="tier-price">
-                            <span class="price">97€</span>
-                            <span class="period">/Monat</span>
-                        </div>
-                    </div>
-                    <ul class="tier-features">
-                        <li><i class="fas fa-check"></i> Alles aus Premium</li>
-                        <li><i class="fas fa-check"></i> Monatliche 1:1 Session</li>
-                        <li><i class="fas fa-check"></i> Persönlicher Heilungsplan</li>
-                        <li><i class="fas fa-check"></i> Direkte WhatsApp Betreuung</li>
-                        <li><i class="fas fa-check"></i> Alle Online-Kurse</li>
-                        <li><i class="fas fa-check"></i> VIP Event Zugang</li>
-                    </ul>
-                    <a href="#" class="btn btn-secondary">Wählen</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Digital Products Section -->
-    <section id="shop" class="digital-products">
-        <div class="container">
-            <div class="section-header">
-                <h2>📚 Digitale Produkte & Kurse</h2>
-                <p>Sofort verfügbare Ressourcen für deine Heilungsreise</p>
-            </div>
-            
-            <div class="products-grid">
-                <div class="product-card bestseller">
-                    <div class="product-badge">Bestseller</div>
-                    <div class="product-image">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h4>Trauma-Heilung Komplettkurs</h4>
-                    <p>8-Wochen Online-Kurs mit Videos, Arbeitsbüchern und persönlicher Betreuung</p>
-                    <div class="product-features">
-                        <span>🎥 12+ Stunden Video</span>
-                        <span>📝 Arbeitsbücher</span>
-                        <span>🙏 Meditationen</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="old-price">297€</span>
-                        <span class="new-price">197€</span>
-                    </div>
-                    <a href="#" class="btn btn-primary product-buy-btn" data-product="Trauma-Heilung Komplettkurs" data-price="197€">Jetzt kaufen</a>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h4>HMDS Detox Challenge</h4>
-                    <p>21-Tage geführte Schwermetall-Entgiftung mit täglicher Begleitung</p>
-                    <div class="product-features">
-                        <span>🥤 21 Tage Plan</span>
-                        <span>📱 App Zugang</span>
-                        <span>📊 Fortschritts-Tracking</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="new-price">67€</span>
-                    </div>
-                    <a href="#" class="btn btn-outline product-info-btn" data-product="HMDS Detox Challenge" data-price="67€">Mehr erfahren</a>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-om"></i>
-                    </div>
-                    <h4>Spirituelle Heilmeditationen</h4>
-                    <p>Sammlung von 25+ geführten Meditationen für Seelenheilung</p>
-                    <div class="product-features">
-                        <span>🎧 25+ Audios</span>
-                        <span>⏰ 5-45 Min. Längen</span>
-                        <span>📱 Offline verfügbar</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="new-price">47€</span>
-                    </div>
-                    <a href="#" class="btn btn-outline product-preview-btn" data-product="Spirituelle Heilmeditationen" data-price="47€">Anhören</a>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h4>Medical Medium Rezeptbuch</h4>
-                    <p>150+ heilende Rezepte mit Nährwertangaben und Heilwirkungen</p>
-                    <div class="product-features">
-                        <span>🍳 150+ Rezepte</span>
-                        <span>📊 Nährwerte</span>
-                        <span>🖨️ Schöne Bilder</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="new-price">29,90€</span>
-                    </div>
-                    <a href="#" class="btn btn-outline product-buy-btn" data-product="Medical Medium Rezeptbuch" data-price="29,90€">Kaufen</a>
-                </div>
-            </div>
-            
-            <div class="bundle-offer">
-                <div class="bundle-card">
-                    <div class="bundle-header">
-                        <h3>🎁 Komplett-Bundle</h3>
-                        <p>Alle digitalen Produkte zum Sonderpreis</p>
-                    </div>
-                    <div class="bundle-content">
-                        <div class="bundle-items">
-                            <span>✓ Trauma-Heilung Kurs</span>
-                            <span>✓ HMDS Detox Challenge</span>
-                            <span>✓ Spirituelle Meditationen</span>
-                            <span>✓ Medical Medium Rezeptbuch</span>
-                            <span>✓ BONUS: Persönliche Beratung (60 Min.)</span>
-                        </div>
-                        <div class="bundle-pricing">
-                            <div class="bundle-savings">
-                                <span class="regular-price">Einzelpreis: 340,90€</span>
-                                <span class="bundle-price">Bundle-Preis: 247€</span>
-                                <span class="savings">Spare 93,90€!</span>
-                            </div>
-                            <a href="#" class="btn btn-primary btn-large product-buy-btn" data-product="Komplett-Bundle" data-price="247€">Bundle kaufen 🎁</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Erfahrungen & Erfolge</h2>
-                <p>Was Menschen auf ihrem Heilungsweg mit mir erlebt haben</p>
-            </div>
-            
-            <!-- Video Testimonials -->
-            <div class="video-testimonials">
-                <div class="video-testimonial">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play"></i>
-                        <img src="https://page.gensparksite.com/v1/base64_upload/9a66d5a1ac415f51f5963850c45f0542" alt="Sarah's Transformation" class="testimonial-thumbnail">
-                    </div>
-                    <div class="video-info">
-                        <h4>Sarah's komplette Transformation</h4>
-                        <p>Von PTBS zur spirituellen Heilung - eine bewegende 3-Minuten Geschichte</p>
-                        <span class="video-duration">3:42 Min</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card featured">
-                    <div class="testimonial-image">
-                        <div class="avatar">
-                            <span>SM</span>
-                        </div>
-                        <div class="rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="platform">Google Bewertung</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-content">
-                        <h4>"Lebensverändernd - mehr als nur Ernährung"</h4>
-                        <p>"Christina hat mich durch die dunkelste Zeit meines Lebens begleitet. Nach Jahren von PTBS fühle ich mich zum ersten Mal wieder wie ich selbst. Ihre Kombination aus Medical Medium Ernährung und spiritueller Begleitung war lebensverändernd."</p>
-                        <div class="testimonial-author">
-                            <strong>Sarah M.</strong>
-                            <span>Köln • Premium Mitglied seit 2023</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-image">
-                        <div class="avatar">
-                            <span>MK</span>
-                        </div>
-                        <div class="rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="platform">Facebook</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-content">
-                        <h4>"HMDS hat mein Leben zurückgegeben"</h4>
-                        <p>"Die Schwermetall-Entgiftung mit Christina hat nicht nur meine körperlichen Beschwerden gelindert, sondern auch emotionale Blockaden gelöst, die ich jahrelang mit mir getragen habe. Unglaublich dankbar!"</p>
-                        <div class="testimonial-author">
-                            <strong>Michael K.</strong>
-                            <span>Berlin • HMDS Detox Teilnehmer</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-image">
-                        <div class="avatar">
-                            <span>AL</span>
-                        </div>
-                        <div class="rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="platform">Trustpilot</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-content">
-                        <h4>"Spirituelle Heilung, die wirkt"</h4>
-                        <p>"Dank Christina's spiritueller Begleitung und den Medical Medium Protokollen habe ich meine Angststörungen überwunden. Die Soul Light Meditationen haben mir geholfen, wieder Vertrauen in mich zu finden."</p>
-                        <div class="testimonial-author">
-                            <strong>Anna L.</strong>
-                            <span>Hamburg • Spirituelle Begleitung</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-image">
-                        <div class="avatar">
-                            <span>JW</span>
-                        </div>
-                        <div class="rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="platform">Google</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-content">
-                        <h4>"BARF-Beratung für meine Katze"</h4>
-                        <p>"Meine Katze Luna war krank und schwach. Nach Christina's BARF-Beratung ist sie wie verwandelt - mehr Energie, glänzendes Fell und pure Lebensfreude! Danke für diese transformation."</p>
-                        <div class="testimonial-author">
-                            <strong>Julia W.</strong>
-                            <span>München • BARF-Beratung für Katzen</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="trust-metrics">
-                <div class="metric-item">
-                    <div class="metric-number">4.9/5</div>
-                    <div class="metric-label">Durchschnittsbewertung</div>
-                    <div class="metric-sublabel">(127 Bewertungen)</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-number">500+</div>
-                    <div class="metric-label">Geheilte Klienten</div>
-                    <div class="metric-sublabel">seit 2016</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-number">95%</div>
-                    <div class="metric-label">Weiterempfehlungsrate</div>
-                    <div class="metric-sublabel">würden wieder kommen</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Spiritual Features Section -->
-    <section id="spiritual" class="spiritual-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Spirituelle Unterstützung für deine Heilung</h2>
-                <p>Meditationen, Engel-Karten und spirituelle Werkzeuge für deinen Weg</p>
-            </div>
-            <div class="spiritual-content">
-                <div class="spiritual-grid">
-                    <!-- Free Meditations -->
-                    <div class="spiritual-card">
-                        <div class="card-icon">🧘‍♀️</div>
-                        <h3>Kostenlose Meditationen</h3>
-                        <p>Tiefenentspannung und spirituelle Verbindung durch geführte Meditationen.</p>
-                        <div class="meditation-downloads">
-                            <a href="#" class="download-btn" data-download="heilungs-meditation">
-                                <i class="fas fa-download"></i> Heilungs-Meditation (15 Min.)
-                            </a>
-                            <a href="#" class="download-btn" data-download="morgen-meditation">
-                                <i class="fas fa-download"></i> Morgen-Meditation (10 Min.)
-                            </a>
-                            <a href="#" class="download-btn" data-download="schutz-meditation">
-                                <i class="fas fa-download"></i> Schutz-Meditation (12 Min.)
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Moon Meditation Calendar -->
-                    <div class="spiritual-card">
-                        <div class="card-icon">🌙</div>
-                        <h3>Mond-Meditations-Kalender</h3>
-                        <p>Nutze die Kraft der Mondphasen für deine spirituelle Praxis.</p>
-                        <div class="moon-calendar">
-                            <div class="current-moon-phase">
-                                <h4>Aktuelle Mondphase:</h4>
-                                <div class="moon-phase-display" id="currentMoonPhase">
-                                    <div class="moon-icon waxing-gibbous">🌔</div>
-                                    <div class="moon-info">
-                                        <strong>Abnehmender Mond</strong>
-                                        <p>Zeit für Loslassen und innere Arbeit</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="moon-meditation-tip">
-                                <p><strong>Tipp:</strong> Im abnehmenden Mond sind besonders kraftvolle Meditationen zur inneren Reinigung und zum Loslassen alter Muster.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Angel Cards -->
-                    <div class="spiritual-card">
-                        <div class="card-icon">👼</div>
-                        <h3>Engel-Karten</h3>
-                        <p>Tägliche Weisheit und Führung von den Engeln für deinen Heilungsweg.</p>
-                        <div class="angel-card-container">
-                            <div class="angel-card-display" id="dailyAngelCard">
-                                <div class="angel-card-front">
-                                    <h4>Deine heutige Engel-Botschaft:</h4>
-                                    <div class="angel-symbol">✨</div>
-                                    <p class="angel-message">"Vertraue dem Prozess deiner Heilung. Die Engel stehen dir zur Seite."</p>
-                                    <p class="angel-name">- Erzengel Raphael -</p>
-                                </div>
-                            </div>
-                            <button class="btn btn-outline angel-card-btn" id="drawAngelCard">
-                                <i class="fas fa-hand-holding-heart"></i> Neue Karte ziehen
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Spiritual Community -->
-                    <div class="spiritual-card">
-                        <div class="card-icon">💫</div>
-                        <h3>Spirituelle Community</h3>
-                        <p>Tritt bei unseren Telegram-Gruppen für tägliche spirituelle Impulse.</p>
-                        <div class="community-links">
-                            <a href="#" class="community-link telegram-link">
-                                <i class="fab fa-telegram"></i>
-                                <span>Tägliche Meditationen</span>
-                            </a>
-                            <a href="#" class="community-link">
-                                <i class="fas fa-heart"></i>
-                                <span>Spirituelle Austauschrunde</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Lass uns über deinen Heilungsweg sprechen</h2>
-                <p>Dein erster Schritt zu wahrer Heilung beginnt hier</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Bereit für deine Transformation?</h3>
-                    <p>Ich kenne den Schmerz, den Trauma und chronische Beschwerden verursachen können. Aber ich weiß auch, dass Heilung möglich ist. Lass uns gemeinsam deinen individuellen Weg finden.</p>
-                    
-                    <div class="contact-promise">
-                        <h4>🌿 Was dich erwartet:</h4>
-                        <ul>
-                            <li>✨ Ein einfühlsames, kostenloses Erstgespräch (30 Min.)</li>
-                            <li>🧠 Individuelle Einschätzung deiner Situation</li>
-                            <li>🌱 Konkrete erste Schritte für deinen Heilungsweg</li>
-                            <li>🙏 Trauma-sensible und spirituell fundierte Begleitung</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>E-Mail</h4>
-                                <p>hallo@soulsgold.de</p>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-video"></i>
-                            <div>
-                                <h4>Online Beratung</h4>
-                                <p>Zoom, Teams oder Telefon</p>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-globe"></i>
-                            <div>
-                                <h4>Standort</h4>
-                                <p>Online deutschlandweit & A/CH</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                    </div>
-                </div>
-
-                <div class="contact-form-container">
-                    <h3>Kostenloses Erstgespräch buchen</h3>
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Wie darf ich dich nennen? *</label>
-                            <input type="text" id="name" name="name" required placeholder="Dein Vorname">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-Mail Adresse *</label>
-                            <input type="email" id="email" name="email" required placeholder="deine@email.de">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefonnummer (optional)</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Für Rückfragen">
-                        </div>
-                        <div class="form-group">
-                            <label for="interest">Ich interessiere mich für... *</label>
-                            <select id="interest" name="interest" required>
-                                <option value="">Bitte wählen...</option>
-                                <option value="ernaehrung">Ernährung nach Medical Medium</option>
-                                <option value="spiritualitaet">Spirituelle Begleitung</option>
-                                <option value="beides">Beides - Ernährung & Spiritualität</option>
-                                <option value="trauma">Trauma-Aufarbeitung</option>
-                                <option value="sonstiges">Sonstiges</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Womit kann ich dir helfen?</label>
-                            <select id="subject" name="subject">
-                                <option value="">Bitte wählen...</option>
-                                <option value="nutrition">Ernährungsberatung nach Medical Medium</option>
-                                <option value="trauma">Trauma & PTBS Begleitung</option>
-                                <option value="detox">Schwermetall-Entgiftung</option>
-                                <option value="spiritual">Spirituelle Heilung & Meditationen</option>
-                                <option value="holistic">Ganzheitliches Coaching</option>
-                                <option value="courses">Online-Kurse & Workshops</option>
-                                <option value="speaking">Vorträge & Seminare</option>
-                                <option value="other">Etwas anderes</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Teile deine Geschichte mit mir *</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Erzähle mir von deinen Herausforderungen, Zielen und was du dir von unserer Zusammenarbeit erhöffst. Ich behandle alles vertraulich und mit Mitgefühl."></textarea>
-                        </div>
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="newsletter" name="newsletter">
-                            <label for="newsletter">Ich möchte regelmäßig wertvolle Tipps, Rezepte und Informationen zu Heilung und Transformation erhalten.</label>
-                        </div>
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="privacy" name="privacy" required>
-                            <label for="privacy">Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu und möchte gelegentlich hilfreiche Informationen über Heilung erhalten. *</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Kostenloses Gespräch buchen ✨</button>
-                        <p class="form-note">Du erhältst innerhalb von 24h eine Antwort von mir.</p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content booking-modal">
-            <span class="close">&times;</span>
-            <div class="booking-modal-header">
-                <h2>Kostenloses Erstgespräch buchen</h2>
-                <p>30 Minuten kostenlose Beratung zu deinem Heilungsweg</p>
-            </div>
-            <div class="booking-modal-body">
-                <div class="booking-info">
-                    <h3>Was du erwartet:</h3>
-                    <ul>
-                        <li>✨ Persönliche Analyse deiner Situation</li>
-                        <li>🧠 Erste Empfehlungen für deinen Weg</li>
-                        <li>🌱 Keine Verkaufsgespräche - reine Hilfe</li>
-                        <li>🙏 Vertrauliche & einfühlsame Begleitung</li>
-                    </ul>
-                </div>
-                <div class="booking-options">
-                    <h3>Buche jetzt deinen Termin:</h3>
-                    <div class="booking-btn-container">
-                        <a href="#contact" class="btn btn-primary booking-btn">
-                            <i class="fas fa-envelope"></i>
-                            <span>Über Kontaktformular</span>
-                        </a>
-                        <!-- Calendly integration placeholder -->
-                        <div class="calendly-widget">
-                            <!-- Calendly embed code would go here -->
-                            <p><a href="https://calendly.com/soulsgold/erstgespraech" target="_blank" class="btn btn-outline">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Direkt buchen mit Calendly</span>
-                            </a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>🌿 Soulsgold</h3>
-                    <p>Christina Bradtke - Ernährungsberaterin & Health Coach nach Medical Medium. Begleitung für Menschen mit Trauma, PTBS und chronischen Beschwerden.</p>
-                    <div class="footer-mission">
-                        <p><em>"Heilung beginnt dort, wo wir uns selbst mit Mitgefühl begegnen."</em></p>
-                    </div>
-                    <div class="footer-social">
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Angebote</h4>
-                    <ul>
-                        <li><a href="#services">1:1 Ernährungsberatung</a></li>
-                        <li><a href="#services">Spirituelle Begleitung</a></li>
-                        <li><a href="#services">Ganzheitliches Coaching</a></li>
-                        <li><a href="#services">Online-Kurse</a></li>
-                        <li><a href="#services">Vorträge & Seminare</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Wissen</h4>
-                    <ul>
-                        <li><a href="#knowledge">Medical Medium Grundlagen</a></li>
-                        <li><a href="#recipes">Heilende Rezepte</a></li>
-                        <li><a href="#approach">Mein Ansatz</a></li>
-                        <li><a href="#about">Meine Geschichte</a></li>
-                        <li><a href="#testimonials">Erfahrungen</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Service</h4>
-                    <ul>
-                        <li><a href="#contact">Kostenloses Erstgespräch</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Datenschutz</a></li>
-                        <li><a href="#">Impressum</a></li>
-                        <li><a href="#">Disclaimer</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Soulsgold - Christina Bradtke. Alle Rechte vorbehalten.</p>
-                <div class="footer-disclaimer">
-                    <p class="disclaimer"><strong>Wichtiger Hinweis zur Heilbegleitung:</strong> Diese Website bietet keine medizinische Beratung oder Behandlung. Die Inhalte dienen der Information und Aufklärung. Bei gesundheitlichen Problemen konsultieren Sie immer einen Arzt oder Therapeuten. Die Informationen nach Anthony William sind spiritueller Natur und ersetzen keine ärztliche Behandlung.</p>
-                </div>
+        <div class="footer-content">
+            <h3>Christina Bradtke</h3>
+            <p>
+                Diese Seite ist eine persönliche Ausstellung meines Lebens mit Medical Medium 
+                Ernährung und meinen geliebten Katzen. Hier geht es nicht um Verkauf oder 
+                Dienstleistungen - nur um das Teilen meiner Leidenschaft und Erfahrungen.
+            </p>
+            <p>
+                "Heilung beginnt dort, wo wir uns selbst mit Mitgefühl begegnen."
+            </p>
+            <div class="footer-note">
+                <p>&copy; 2024 Christina Bradtke. Diese Seite dient ausschließlich informativen Zwecken.</p>
+                <p>
+                    <strong>Hinweis:</strong> Die hier geteilten Informationen ersetzen keine medizinische Beratung. 
+                    Bei gesundheitlichen Problemen konsultiere bitte immer einen Arzt.
+                </p>
             </div>
         </div>
     </footer>
-
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
 </body>
 </html>
